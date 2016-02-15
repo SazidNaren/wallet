@@ -1,0 +1,363 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundLine"
+    tools:context="vis.com.au.wallte.activity.CreateAccountActivity">
+
+   <!-- <include
+        android:id="@+id/toolbar"
+        layout="@layout/tool_bar" />-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/backgroundLine"
+                android:orientation="horizontal">
+
+                <include
+                    android:id="@+id/imageView"
+                    layout="@layout/circularimageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/layout_bg"
+                android:orientation="vertical">
+
+                <!-- Inser firstname -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/firstName"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/blackColor"
+                        android:text="First Name"></TextView>
+
+                    <EditText
+                        android:id="@+id/firstNameEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:hint="James"></EditText>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundLine" />
+                <!-- Insert lastname -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lastName"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/blackColor"
+                        android:text="Last Name"></TextView>
+
+                    <EditText
+                        android:id="@+id/lastNameEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:hint="Sandman"></EditText>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundLine" />
+                <!-- Inset DOB -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Dob"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/blackColor"
+                        android:text="D.O.B"></TextView>
+
+                    <EditText
+                        android:id="@+id/DboEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:drawableRight="@drawable/calander_icon"
+                        android:hint="1/02/1990"></EditText>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundLine" />
+
+                <!-- Insert mobile -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/mobileNo"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/blackColor"
+                        android:text="Mobile"></TextView>
+
+                    <EditText
+                        android:id="@+id/mobileEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:hint="9808000000"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:inputType="number"></EditText>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundLine" />
+                <!-- Insert Address -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/blackColor"
+                        android:text="City"></TextView>
+
+                    <EditText
+                        android:id="@+id/addressEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:hint="Adelaide, Australia"></EditText>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundLine" />
+
+
+                <!-- Insert UserName -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/blackColor"
+                        android:text="User Name"></TextView>
+
+                    <EditText
+                        android:id="@+id/userNameEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:hint="james"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:inputType="textPersonName"></EditText>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundLine" />
+
+                <!--Insert EmailAddress  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/emailAddressTextView"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/blackColor"
+                        android:text="Email"></TextView>
+
+                    <EditText
+                        android:id="@+id/emailAddressEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:hint="james@gmail.com"
+                        android:inputType="textEmailAddress"></EditText>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundLine" />
+
+
+                <!-- Insert Password -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/password"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/blackColor"
+                        android:text="Password"></TextView>
+
+                    <EditText
+                        android:id="@+id/passwordEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:hint="******"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:inputType="textPassword"></EditText>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundLine" />
+
+                <!-- Confirm password -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/confirm"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/blackColor"
+                        android:text="Confirm"></TextView>
+
+                    <EditText
+                        android:id="@+id/confirmPassEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:hint="******"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:inputType="textPassword"></EditText>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/backgroundLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/check"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"></CheckBox>
+
+                    <TextView
+                        android:id="@+id/checkEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="I accept all the terms and conditions."></TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/layout/create_account.xml -->

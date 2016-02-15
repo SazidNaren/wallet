@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="vis.com.au.wallte.CreateAccount_Activity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/save_actionbar"
+        android:title="Save"
+        app:showAsAction="always"/>
+
+</menu>
+<!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/menu/create_account_.xml -->

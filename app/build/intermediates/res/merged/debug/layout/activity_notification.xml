@@ -1,0 +1,13 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="vis.com.au.wallte.activity.SubscribeActivity" >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#e7e7e6"
+        android:src="@drawable/toggle_on"/>
+
+</RelativeLayout><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/layout/activity_notification.xml -->

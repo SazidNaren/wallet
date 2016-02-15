@@ -1,0 +1,13 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="vis.com.au.wallte.activity.AboutUsActivity" >
+
+    <WebView
+        android:id="@+id/theMainWebView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</RelativeLayout>
+<!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/layout/activity_about_us.xml -->

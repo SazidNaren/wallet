@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView android:id="@+id/payment_form_title"
+        android:text="@string/addPayment"
+        android:layout_alignParentTop="true"
+        style="@style/Header"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/payment_form_title"
+        android:text="Pay 39$"
+        android:layout_alignParentRight="true"/>
+    <fragment android:id="@+id/payment_form"
+        android:layout_width="fill_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        class="vis.com.au.fragment.PaymentFormFragment"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <TextView android:id="@+id/token_list_title"
+            android:text="@string/paymentMethods"
+            android:layout_below="@id/payment_form"
+            android:layout_marginTop="25dp"
+            style="@style/Header"
+            />
+
+        <fragment android:id="@+id/token_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/token_list_title"
+            class="stripe.example.fragment.TokenListFragment"/>
+    </LinearLayout>
+</RelativeLayout>
+<!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/layout/payment_activity.xml --><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/build/intermediates/exploded-aar/Wallet/paymrnt_stripe/unspecified/res/layout/payment_activity.xml -->

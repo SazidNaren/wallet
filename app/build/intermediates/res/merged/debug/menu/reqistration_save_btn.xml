@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/actionSaveReqiatrationBtn"
+        android:icon="@drawable/save_actionbar"
+        android:showAsAction="always"
+        android:title="Save"
+        >
+    </item>
+
+</menu><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/menu/reqistration_save_btn.xml -->

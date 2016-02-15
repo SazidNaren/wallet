@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="vis.com.au.wallte"
+    android:installLocation="auto"
+    android:versionCode="2"
+    android:versionName="1.2" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.screen.landscape" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+ <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+ <!-- Optional permission for App measurement to run. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+ <!-- push notification -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/lunchericon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="vis.com.au.wallte.activity.AppInfoActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.LogInActivity"
+            android:label="@string/title_activity_log_in_"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.CreateAccount_Activity"
+            android:label="@string/title_activity_create_account_"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.DashboardActivity"
+            android:label="@string/title_activity_my_upload"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.PremiumConfirmActivity"
+            android:label="@string/title_activity_my_upload"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.FillTheUserForm"
+            android:label="@string/title_activity_fill_the_form"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.ResultsActivity"
+            android:label="@string/title_text_from_image"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.MinWidth" >
+        </activity>
+        <!--
+            <activity
+            android:name="edu.sfsu.cs.orange.ocr.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="edu.sfsu.cs.orange.ocr.HelpActivity"
+            android:screenOrientation="user" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="edu.sfsu.cs.orange.ocr.PreferencesActivity" />
+        <activity
+            android:name="edu.sfsu.cs.orange.ocr.OCRTextActivity"
+            android:label="@string/title_activity_ocrtext" >
+        </activity>
+        -->
+        <activity
+            android:name="vis.com.au.wallte.activity.DisplayUserDetails_Activity"
+            android:label="@string/title_activity_display_user_details_"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.PaymentActivityGoogle"
+            android:label="@string/title_activity_display_user_details_"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.DrawerLayoutActivity"
+            android:label="@string/title_activity_drawer_layout"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <!--
+            <activity
+            android:name=".ProgressBarActivity"
+            android:label="@string/title_activity_progress_bar" >
+        </activity>
+        -->
+        <activity
+            android:name="vis.com.au.wallte.activity.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.ChangePasswordActivity"
+            android:label="@string/title_activity_change_password"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.SubscribeActivity"
+            android:label="@string/title_activity_subscribe"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.NotificationActivity"
+            android:label="@string/title_activity_subscribe"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.SplashScreenActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.AboutUsActivity"
+            android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.FolderListActivity"
+            android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="vis.com.au.wallte.google_measurement_service"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name="vis.com.au.wallte.activity.PaymentActivity" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="vis.com.au.wallte"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.screen.landscape" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/lunchericon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".activity.AppInfoActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.LogInActivity"
+            android:label="@string/title_activity_log_in_"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.CreateAccount_Activity"
+            android:label="@string/title_activity_create_account_"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.DashboardActivity"
+            android:label="@string/title_activity_my_upload"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.PremiumConfirmActivity"
+            android:label="@string/title_activity_my_upload"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FillTheUserForm"
+            android:label="@string/title_activity_fill_the_form"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.ResultsActivity"
+            android:label="@string/title_text_from_image"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.MinWidth"
+            android:screenOrientation="portrait">
+        </activity>
+<!--        <activity
+            android:name="edu.sfsu.cs.orange.ocr.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="edu.sfsu.cs.orange.ocr.HelpActivity"
+            android:screenOrientation="user" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="edu.sfsu.cs.orange.ocr.PreferencesActivity" />
+        <activity
+            android:name="edu.sfsu.cs.orange.ocr.OCRTextActivity"
+            android:label="@string/title_activity_ocrtext" >
+        </activity>-->
+        <activity
+            android:name=".activity.DisplayUserDetails_Activity"
+            android:label="@string/title_activity_display_user_details_"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.PaymentActivityGoogle"
+            android:label="@string/title_activity_display_user_details_"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.DrawerLayoutActivity"
+            android:label="@string/title_activity_drawer_layout"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait">
+        </activity>
+<!--        <activity
+            android:name=".ProgressBarActivity"
+            android:label="@string/title_activity_progress_bar" >
+        </activity>-->
+        <activity
+            android:name=".activity.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:label="@string/title_activity_change_password"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.SubscribeActivity"
+            android:label="@string/title_activity_subscribe"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.NotificationActivity"
+            android:label="@string/title_activity_subscribe"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.AboutUsActivity"
+            android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.FolderListActivity"
+            android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+</manifest>

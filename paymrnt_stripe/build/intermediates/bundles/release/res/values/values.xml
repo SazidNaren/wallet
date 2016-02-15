@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string-array name="currency_array">
+        <item>Currency (optional)</item>
+        <item>Unspecified</item>
+        <item>USD</item>
+    </string-array>
+    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/dates.xml -->
+    <eat-comment/>
+    <string-array name="month_array">
+        <item>Month</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <string-array name="year_array">
+        <item>Year</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+    </string-array>
+    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="buttonText">#EEEEEE</color>
+    <color name="editText">#AAAAAA</color>
+    <color name="headerText">#EEEEEE</color>
+    <color name="spinnerItem">#AAAAAA</color>
+    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="action_settings">Settings</string>
+    <string name="addPayment">Add Payment Method</string>
+    <string name="appName">Stripe Payments Example</string>
+    <string name="app_name">Shorten Url</string>
+    <string name="cardNumber">Card Number</string>
+    <string name="cvc">CVC</string>
+    <string name="endingIn">Card ending in </string>
+    <string name="hello_world">Hello world!</string>
+    <string name="ok">OK</string>
+    <string name="paymentMethods">Payment Methods</string>
+    <string name="progressMessage">Creating Token…</string>
+    <string name="save">PAY</string>
+    <string name="validationErrors">Validation Errors</string>
+    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="Button" parent="@android:style/Widget.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textColor">@color/buttonText</item>
+        <item name="android:background">@drawable/btn_default_holo_dark</item>
+    </style>
+    <style name="CVC" parent="@style/TextField">
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:hint">@string/cvc</item>
+        <item name="android:layout_weight">0.7</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+    <style name="CardNumber" parent="@style/TextField">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:hint">@string/cardNumber</item>
+    </style>
+    <style name="Currency" parent="@style/Spinner">
+        <item name="android:entries">@array/currency_array</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="ExpMonth" parent="@style/Spinner">
+        <item name="android:entries">@array/month_array</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="ExpYear" parent="@style/Spinner">
+        <item name="android:entries">@array/year_array</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.8</item>
+    </style>
+    <style name="Header" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/header_dark</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/headerText</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="Save" parent="@style/Button">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:text">@string/save</item>
+    </style>
+    <style name="Spinner" parent="@android:style/Widget.Spinner">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/spinner_background_holo_dark</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+    </style>
+    <style name="SpinnerItem" parent="@android:style/Widget.TextView.SpinnerItem">
+
+        <item name="android:textAppearance">@style/TextAppearance.SpinnerItem</item>
+        <item name="android:textColor">@color/spinnerItem</item>
+    </style>
+    <style name="TextAppearance.SpinnerItem" parent="@android:style/TextAppearance.Widget.TextView.SpinnerItem">
+        <item name="android:textColor">@color/spinnerItem</item>
+    </style>
+    <style name="TextField" parent="@android:style/Widget.EditText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/editText</item>
+        <item name="android:background">@drawable/edit_text_holo_dark</item>
+    </style>
+    <style name="Theme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+    </style>
+    <style name="transparent_background_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>

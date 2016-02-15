@@ -1,0 +1,262 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/whiteColor"
+   tools:context="vis.com.au.wallte.activity.DisplayUserDetails_Activity">
+
+        <LinearLayout
+            android:id="@+id/ll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/documentType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:text="DOC Type"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/documentTypeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="40dp"
+                    android:background="#00000000"
+                    android:hint="Driving Document"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Attachment -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/attachment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:text="Attachment"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/attachmentImageView"
+                    android:layout_width="90dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:background="#00000000"
+                    android:src="@drawable/attachment_image"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- title -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:text="Title"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/documentTitleEditTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="80dp"
+                    android:background="#00000000"
+                    android:hint="License"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- date of issue -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dateOfIssue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:text="Date of issue"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/dateOfIssueTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:background="#00000000"
+                    android:hint="20-7-2015"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Date of Expire -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dateOfExpire"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:text="Date of expiry"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/dateOfExpireTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:background="#00000000"
+                    android:hint="20-7-2015"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Supliers Name -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/whiteColor"
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/supliersName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:text="Supplier Name"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/supliersNameTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="#00000000"
+                    android:hint="John Deliver"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Registration Id -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/registrationId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:text="Reg Id"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/registrationIdTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="70dp"
+                    android:background="#00000000"
+                    android:hint="12432243"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Additional Information -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/additionalInformation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:text="Additional info"
+                    android:textColor="@color/blackColor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/additionalInformationTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:background="#00000000"
+                    android:hint="Some additional info"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/editeButton"
+                style="@style/SubmitButton"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Edit" />
+        </LinearLayout>
+
+
+</ScrollView>

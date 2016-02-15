@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.sfsu.cs.orange.ocr.OCRTextActivity" >
+
+    <LinearLayout
+        android:id="@+id/linearLayoutOCRMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#F5F5F5"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/userDetailsEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:text="NOTICE"
+            android:textColor="#757575"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/drawLineColor" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="14sp"
+            android:textColor="#9E9E9E"
+            android:text="The valid document field are:• Registration ID • Name• Date of issue• Date of expiration. If in any case, the scanned document do not match the above fields, then user himself/herself has to edit the fields and make it relevant as mentioned above. Also, the fields are case-sensitive. Hence, one should insert the fields very carefully considering capital and small letters in mind." />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/ocrView"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/linearLayoutOCRMessage"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+         android:background="@color/drawLineColor" />
+
+    <EditText
+        android:id="@+id/ocrTextViewShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ocrView"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="#00000000" />
+
+    <Button
+        android:id="@+id/summitButton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/buttonBrandColor"
+        android:text="Submit" />
+
+</RelativeLayout><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/layout/activity_ocrtext.xml -->

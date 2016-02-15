@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#fab411</color>
+    <color name="appBgColor">#B2221B</color>
+    <color name="whiteColor">#ffffff</color>
+    <color name="blackColor">#000000</color>
+    <color name="topBarHorizontalLineColor">#663333</color>
+    <color name="dividerColor">#999999</color>
+    <color name="greenColor">#99cc66</color>
+    <color name="dimWhiteColor">#ac9d93</color>
+    <color name="dimBlackColor">#3d3d3d</color>
+    <color name="drawLineColor">#E0E0E0</color>
+    <color name="topTitleColor">#f7f1ee</color>
+    <color name="signintextColor">#0E6EB8</color>
+    <color name="createAccountBtn">#282828</color>
+    <color name="backgroundLine">#8f8f8f</color>
+    <color name="buttonBrandColor">#fab411</color>
+    <color name="buttonBrandGray">#464545</color>
+    <color name="help_button_view">#ffcccccc</color>
+    <color name="progress_bg">#8C000000</color>
+
+    <!-- help button view background color -->
+    <color name="help_view">#ff404040</color>
+    <!-- background color for entire help view -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <!-- source language text/label text color. For example, "OCR English" -->
+    <color name="result_text">#ffffffff</color>
+    <!-- OCR result text color -->
+    <color name="result_view">#b0000000</color>
+    <!-- result view background color -->
+    <color name="status_text">#ffffffff</color>
+    <!-- status_view_top/status_view_bottom text color -->
+    <color name="status_top_text_background">#ffffffff</color>
+    <!-- status_view_top text background color -->
+    <color name="translation_text">#00ccff</color>
+    <!-- translation text color -->
+    <color name="viewfinder_corners">#ffffffff</color>
+    <!-- four corner elements for viewfinder -->
+    <color name="viewfinder_frame">#ffd6d6d6</color>
+    <!-- viewfinder rectangle -->
+    <color name="viewfinder_mask">#60000000</color>
+    <!-- viewfinder exterior darkened area -->
+
+</resources>
