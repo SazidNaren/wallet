@@ -16,6 +16,7 @@ import vis.com.au.wallte.activity.PaymentActivity;
 public class PaymentFormFragment extends Fragment implements PaymentForm {
 
     Button saveButton;
+
     EditText cardNumber;
     EditText cvc;
     Spinner monthSpinner;
