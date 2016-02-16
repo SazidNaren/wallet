@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:2:1-163:12
+ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:2:1-168:12
 	package
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:3:5-32
 		INJECTED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml
@@ -372,7 +372,7 @@ ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.
 	android:name
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:29:22-62
 application
-ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:31:5-161:19
+ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:31:5-166:19
 MERGED from [com.android.support:appcompat-v7:22.2.0] S:\Android_Studio_Apps\WalletGit\wallet\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.1] S:\Android_Studio_Apps\WalletGit\wallet\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.1] S:\Android_Studio_Apps\WalletGit\wallet\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\AndroidManifest.xml:22:5-20
@@ -597,14 +597,14 @@ ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:43:13-59
 	android:name
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:42:13-51
-activity#vis.com.au.wallte.activity.CreateAccount_Activity
+activity#vis.com.au.wallte.activity.RegistrationScreen
 ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:46:9-50:20
 	android:screenOrientation
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:49:13-49
 	android:label
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:48:13-67
 	android:name
-		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:47:13-60
+		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:47:13-56
 activity#vis.com.au.wallte.activity.DashboardActivity
 ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:51:9-56:20
 	android:screenOrientation
@@ -625,7 +625,7 @@ ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:60:13-54
 	android:name
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:58:13-60
-activity#vis.com.au.wallte.activity.FillTheUserForm
+activity#vis.com.au.wallte.activity.EditDocumentScreen
 ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:63:9-68:20
 	android:screenOrientation
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:67:13-49
@@ -634,7 +634,7 @@ ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.
 	android:windowSoftInputMode
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:66:13-54
 	android:name
-		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:64:13-53
+		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:64:13-56
 activity#vis.com.au.wallte.activity.ResultsActivity
 ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:69:9-74:20
 	android:screenOrientation
@@ -745,6 +745,14 @@ ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:158:13-60
 	android:name
 		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:157:13-73
+activity#vis.com.au.wallte.activity.ShareScreen
+ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:161:9-165:20
+	android:screenOrientation
+		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:164:13-49
+	android:label
+		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:163:13-41
+	android:name
+		ADDED from S:\Android_Studio_Apps\WalletGit\wallet\app\src\main\AndroidManifest.xml:162:13-49
 activity#com.google.android.gms.ads.AdActivity
 ADDED from [com.google.android.gms:play-services-ads:8.3.0] S:\Android_Studio_Apps\WalletGit\wallet\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.3.0\AndroidManifest.xml:26:9-29:64
 MERGED from [com.google.android.gms:play-services-ads:8.3.0] S:\Android_Studio_Apps\WalletGit\wallet\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.3.0\AndroidManifest.xml:26:9-29:64

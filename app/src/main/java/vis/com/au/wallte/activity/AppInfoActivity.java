@@ -77,7 +77,7 @@ public class AppInfoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Intent i = new Intent(getApplicationContext(), CreateAccount_Activity.class);
+                Intent i = new Intent(getApplicationContext(), RegistrationScreen.class);
                 startActivity(i);
             }
         });

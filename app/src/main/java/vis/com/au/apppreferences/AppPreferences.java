@@ -12,7 +12,17 @@ public class AppPreferences {
 	// private Context mContext = null;
 	private SharedPreferences sharedPreferences;
 	private Editor editor;
-	private String email,emp_id;
+	private String email,emp_id,password;
+
+	public String getPassword() {
+		 return sharedPreferences.getString("password", "");
+	}
+
+	public void setPassword(String password) {
+		editor.putString("password", password);
+		editor.commit();
+	}
+
 	private boolean isPaidVersion;
 
 	public boolean isPaidVersion() {

@@ -96,7 +96,7 @@ public class PaymentActivity extends FragmentActivity implements NetworkTask.Res
         //listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
         listValue.add(new BasicNameValuePair("userId",appPreferences.getEmp_id()));
         listValue.add(new BasicNameValuePair("action", "updateToPaidVersion"));
-        listValue.add(new BasicNameValuePair("type", "employee"));
+        listValue.add(new BasicNameValuePair("type", "admin"));
         listValue.add(new BasicNameValuePair("email",appPreferences.getEmail()));
         listValue.add(new BasicNameValuePair("paid", Integer.toString(1)));
         networkTask = new NetworkTask(PaymentActivity.this, 1, listValue);

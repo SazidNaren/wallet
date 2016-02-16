@@ -76,7 +76,7 @@ public class AsyncProcessTask extends AsyncTask<String, String, Boolean> {
 			String installationId = settings.getString(instIdName, "");
 			restClient.applicationId += installationId;
 			
-			publishProgress( "Uploading image...");
+			publishProgress( "Loading...");
 			
 			String language = "English"; // Comma-separated list: Japanese,English or German,French,Spanish etc.
 			
@@ -84,7 +84,7 @@ public class AsyncProcessTask extends AsyncTask<String, String, Boolean> {
 			processingSettings.setOutputFormat( ProcessingSettings.OutputFormat.txt );
 			processingSettings.setLanguage(language);
 			
-			publishProgress("Uploading..");
+			publishProgress("Loading..");
 
 			// If you want to process business cards, uncomment this
 			/*
@@ -105,12 +105,12 @@ public class AsyncProcessTask extends AsyncTask<String, String, Boolean> {
 				// at http://ocrsdk.com/documentation/apireference/listFinishedTasks/).
 
 				Thread.sleep(5000);
-				publishProgress( "Waiting.." );
+				publishProgress( "Loading..." );
 				task = restClient.getTaskStatus(task.Id);
 			}
 			
 			if( task.Status == Task.TaskStatus.Completed ) {
-				publishProgress( "Downloading.." );
+				publishProgress( "Loading..." );
 				FileOutputStream fos = activity.openFileOutput(outputFile, Context.MODE_PRIVATE);
 				
 				try {

@@ -148,7 +148,8 @@ public class DrawerLayoutActivity extends ActionBarActivity {
                         startActivity(new Intent(DrawerLayoutActivity.this, AboutUsActivity.class));
                         break;
                     case 5:
-                        Toast.makeText(DrawerLayoutActivity.this, "Share clicked", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(DrawerLayoutActivity.this, ShareScreen.class));
+                        //Toast.makeText(DrawerLayoutActivity.this, "Share clicked", Toast.LENGTH_SHORT).show();
                         break;
                     case 6:
 

@@ -57,7 +57,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="vis.com.au.wallte.activity.CreateAccount_Activity"
+            android:name="vis.com.au.wallte.activity.RegistrationScreen"
             android:label="@string/title_activity_create_account_"
             android:screenOrientation="portrait" >
         </activity>
@@ -74,7 +74,7 @@
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="vis.com.au.wallte.activity.FillTheUserForm"
+            android:name="vis.com.au.wallte.activity.EditDocumentScreen"
             android:label="@string/title_activity_fill_the_form"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
@@ -173,6 +173,11 @@
         <activity
             android:name="vis.com.au.wallte.activity.FolderListActivity"
             android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="vis.com.au.wallte.activity.ShareScreen"
+            android:label="Share Screen"
             android:screenOrientation="portrait" >
         </activity>
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->

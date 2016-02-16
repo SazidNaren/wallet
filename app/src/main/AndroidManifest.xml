@@ -44,7 +44,7 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activity.CreateAccount_Activity"
+            android:name=".activity.RegistrationScreen"
             android:label="@string/title_activity_create_account_"
             android:screenOrientation="portrait">
         </activity>
@@ -61,7 +61,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".activity.FillTheUserForm"
+            android:name=".activity.EditDocumentScreen"
             android:label="@string/title_activity_fill_the_form"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait">
@@ -156,6 +156,11 @@
         <activity
             android:name="vis.com.au.wallte.activity.FolderListActivity"
             android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.ShareScreen"
+            android:label="Share Screen"
             android:screenOrientation="portrait">
         </activity>
     </application>

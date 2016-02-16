@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto"
+    tools:context="vis.com.au.wallte.MyUploadActivity" >
+    <item
+        android:id="@+id/takeSnap"
+        android:icon="@drawable/snap_action"
+        myapp:showAsAction="never"
+        android:title="Take a Snap"/>
+    <item
+        android:id="@+id/selectFromGallery"
+        android:icon="@drawable/gallary_action"
+        myapp:showAsAction="never"
+        android:title="Select From Gallery"/>
+</menu>

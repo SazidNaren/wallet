@@ -75,7 +75,7 @@ public class DisplayUserDetails_Activity extends ActionBarActivity implements Ne
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DisplayUserDetails_Activity.this, FillTheUserForm.class);
+                Intent intent = new Intent(DisplayUserDetails_Activity.this, EditDocumentScreen.class);
                 intent.putExtra("docId", Id);
                 intent.putExtra("documentTypeTextView", documentTypeTextView.getText());
                 intent.putExtra("documentTitleEditTextView", documentTitleEditTextView.getText());
@@ -86,6 +86,7 @@ public class DisplayUserDetails_Activity extends ActionBarActivity implements Ne
                 intent.putExtra("additionalInformationTextView", additionalInformationTextView.getText());
                 intent.putExtra("comingFrom",false);
                 startActivity(intent);
+                finish();
 
             }
         });

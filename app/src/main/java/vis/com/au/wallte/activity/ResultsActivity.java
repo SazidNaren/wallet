@@ -4,24 +4,17 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import vis.com.au.helper.NetworkTask;
 import vis.com.au.ocr.AsyncProcessTask;
-import vis.com.au.Utility.AppText;
 import vis.com.au.wallte.R;
 
 public class ResultsActivity extends Activity implements NetworkTask.Result{
@@ -73,7 +66,7 @@ public class ResultsActivity extends Activity implements NetworkTask.Result{
             finish();
         tv.post(new MessagePoster(text));
 
-        Intent intent = new Intent(ResultsActivity.this, FillTheUserForm.class);
+        Intent intent = new Intent(ResultsActivity.this, EditDocumentScreen.class);
         intent.putExtra("docId", "");
         intent.putExtra("documentTypeTextView", "");
         intent.putExtra("documentTitleEditTextView","TestDoc");

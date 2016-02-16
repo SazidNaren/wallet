@@ -57,6 +57,8 @@ public class LogInActivity extends Activity implements OnClickListener {
         password = (EditText) findViewById(R.id.password);
         loginBtn.setOnClickListener(this);
         tvBack = (TextView) findViewById(R.id.tvBack);
+        emailAddress.setText(appPreferences.getEmail());
+        password.setText(appPreferences.getPassword());
         tvBack.setOnClickListener(this);
 
 
@@ -111,12 +113,15 @@ public class LogInActivity extends Activity implements OnClickListener {
                                     Log.e("emp_id", empId + "");
                                     ed.putBoolean("hasRun", true);
                                     appPreferences.setEmail(email);
+                                    appPreferences.setPassword(pass);
                                     ed.putString("empInfo", jO.toString());
                                     ed.commit();
                                     isWrongIDPassword = false;
-                                    startActivity(new Intent(LogInActivity.this, DashboardActivity.class));
-                                    pg.dismiss();
+                                    Intent intent=new Intent(LogInActivity.this, DashboardActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
                                     finish();
+                                    pg.dismiss();
                                 }
                             } catch (Exception e) {
                                 pg.dismiss();

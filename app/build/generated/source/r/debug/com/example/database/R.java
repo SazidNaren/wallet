@@ -795,7 +795,7 @@ public final class R {
 		public static final int select_dialog_item_material = 0x7f030048;
 		public static final int select_dialog_multichoice_material = 0x7f030049;
 		public static final int select_dialog_singlechoice_material = 0x7f03004a;
-		public static final int support_simple_spinner_dropdown_item = 0x7f03004d;
+		public static final int support_simple_spinner_dropdown_item = 0x7f03004e;
 	}
 	public static final class menu {
 		public static final int main = 0x7f0f0009;

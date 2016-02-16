@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import vis.com.au.apppreferences.AppPreferences;
 import vis.com.au.helper.DocumentsComparator;
 import vis.com.au.helper.NetworkTask;
 import vis.com.au.Utility.AppText;
@@ -57,8 +58,9 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
     private final int SELECT_FILE = 1;
     private String resultUrl = "result.txt";
     private EditText searchUploadFileEditText;
-    NetworkTask networkTask;
-    Date todaysDate;
+    private NetworkTask networkTask;
+    private Date todaysDate;
+    private AppPreferences appPreferences;
     private final int GET_DOC_LIST = 101, CREATE_FOLDER = 201;
 
     @Override
@@ -67,10 +69,9 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
         //setContentView(R.layout.activity_myupload);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View contentView = inflater.inflate(R.layout.activity_myupload, null, false);
-
+        appPreferences=AppPreferences.getInstance(this);
         todaysDate = new Date();
         mDrawerLayout.addView(contentView, 0);
-
         todayUpLoadedListView = (ListView) findViewById(R.id.todayUpLoadedListView);
 
        /* List<NameValuePair> listValue = new ArrayList<NameValuePair>();
@@ -80,18 +81,6 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
         networkTask = new NetworkTask(DashboardActivity.this, GET_DOC_LIST, listValue);
         networkTask.exposePostExecute(DashboardActivity.this);
         networkTask.execute("http://workerswallet.com.au/walletapi/document_of_user.php");*/
-
-            List<NameValuePair> listValue = new ArrayList<NameValuePair>();
-            listValue.add(new BasicNameValuePair("actions", "getAllDocFolder"));
-            listValue.add(new BasicNameValuePair("Type", "1"));
-            listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
-            listValue.add(new BasicNameValuePair("fetch", "All"));
-
-            networkTask = new NetworkTask(DashboardActivity.this, GET_DOC_LIST, listValue);
-            networkTask.exposePostExecute(DashboardActivity.this);
-            networkTask.execute("http://workerswallet.com.au/walletapi/paid_basic.php");
-
-
         todayUpLoadedListView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -154,10 +143,25 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
         });
     }
 
+    private void hitAllDataApi() {
+        List<NameValuePair> listValue = new ArrayList<NameValuePair>();
+        listValue.add(new BasicNameValuePair("actions", "getAllDocFolder"));
+        listValue.add(new BasicNameValuePair("Type", "1"));
+        listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
+        listValue.add(new BasicNameValuePair("fetch", "All"));
+
+        networkTask = new NetworkTask(DashboardActivity.this, GET_DOC_LIST, listValue);
+        networkTask.exposePostExecute(DashboardActivity.this);
+        networkTask.execute("http://workerswallet.com.au/walletapi/paid_basic.php");
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.my_upload, menu);
+        if(appPreferences.isPaidVersion())
+        getMenuInflater().inflate(R.menu.paid_menu, menu);
+        else
+            getMenuInflater().inflate(R.menu.unpaid_menu, menu);
         return true;
     }
 
@@ -491,6 +495,7 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
         startActivity(results);
     }
 
+
     @Override
     public void resultFromNetwork(String object, int id, Object arg1, Object arg2) {
         if (id == GET_DOC_LIST) {
@@ -521,8 +526,11 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
 
     @Override
     protected void onResume() {
-        if (todaysListAdapter != null)
+        hitAllDataApi();
+        if (todaysListAdapter != null) {
             todaysListAdapter.notifyDataSetChanged();
+            todayList.clear();
+        }
         super.onResume();
     }
 }

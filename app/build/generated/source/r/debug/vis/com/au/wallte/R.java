@@ -3234,7 +3234,7 @@ containing a value of this type.
         public static final int documentType=0x7f0e00a3;
         public static final int documentTypeName=0x7f0e0108;
         public static final int documentTypeTextView=0x7f0e00a4;
-        public static final int documentTypesSpinner=0x7f0e00b9;
+        public static final int documentTypesSpinner=0x7f0e00ba;
         public static final int donate_with=0x7f0e0061;
         public static final int donate_with_google=0x7f0e0062;
         public static final int done_button=0x7f0e010d;
@@ -3400,7 +3400,7 @@ containing a value of this type.
         public static final int slide=0x7f0e0034;
         public static final int snackbar_action=0x7f0e010f;
         public static final int snackbar_text=0x7f0e010e;
-        public static final int snapImageViewButton=0x7f0e00ba;
+        public static final int snapImageViewButton=0x7f0e00b9;
         public static final int source_language_text_view=0x7f0e00e2;
         public static final int source_language_text_view_label=0x7f0e00e1;
         public static final int split_action_bar=0x7f0e0013;
@@ -3572,10 +3572,11 @@ containing a value of this type.
         public static final int select_dialog_multichoice_material=0x7f030049;
         public static final int select_dialog_singlechoice_material=0x7f03004a;
         public static final int setting_item_cell=0x7f03004b;
-        public static final int slider_list_content=0x7f03004c;
-        public static final int support_simple_spinner_dropdown_item=0x7f03004d;
-        public static final int todaylist_adapter=0x7f03004e;
-        public static final int viewpager_items=0x7f03004f;
+        public static final int share_screen=0x7f03004c;
+        public static final int slider_list_content=0x7f03004d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03004e;
+        public static final int todaylist_adapter=0x7f03004f;
+        public static final int viewpager_items=0x7f030050;
     }
     public static final class menu {
         public static final int about_us=0x7f0f0000;
@@ -3588,8 +3589,8 @@ containing a value of this type.
         public static final int folder_item_screen=0x7f0f0007;
         public static final int log_in_=0x7f0f0008;
         public static final int main=0x7f0f0009;
-        public static final int my_upload=0x7f0f000a;
-        public static final int ocrtext=0x7f0f000b;
+        public static final int ocrtext=0x7f0f000a;
+        public static final int paid_menu=0x7f0f000b;
         public static final int profile=0x7f0f000c;
         public static final int progress_bar=0x7f0f000d;
         public static final int reqistration_save_btn=0x7f0f000e;
@@ -3597,6 +3598,7 @@ containing a value of this type.
         public static final int setting=0x7f0f0010;
         public static final int splash_screen=0x7f0f0011;
         public static final int subscribe=0x7f0f0012;
+        public static final int unpaid_menu=0x7f0f0013;
     }
     public static final class raw {
         public static final int beep=0x7f060000;
