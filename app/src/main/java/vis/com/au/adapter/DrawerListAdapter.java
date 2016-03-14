@@ -13,11 +13,13 @@ public class DrawerListAdapter extends BaseAdapter{
 
 	List<String> listItemsName;
 	List<Integer> listItemsImage;
+	String countDoc="";
 	
-	public DrawerListAdapter(List<String> listItemsName,List<Integer> listItemsImage){
+	public DrawerListAdapter(List<String> listItemsName,List<Integer> listItemsImage,String countDoc){
 		
 		this.listItemsImage = listItemsImage;
 		this.listItemsName = listItemsName;
+		this.countDoc=countDoc;
 	}
 	@Override
 	public int getCount() {
@@ -42,6 +44,11 @@ public class DrawerListAdapter extends BaseAdapter{
 		LayoutInflater mInfater = LayoutInflater.from(parent.getContext());
 		convertView = mInfater.inflate(R.layout.slider_list_content, null);
 		TextView listTV = (TextView) convertView.findViewById(R.id.listItemsTV);
+		TextView countDoctxt=(TextView)convertView.findViewById(R.id.countDoc);
+		if(position==0)
+			countDoctxt.setText(countDoc);
+		else
+		countDoctxt.setVisibility(View.GONE);
 		ImageView iconListIV=(ImageView) convertView.findViewById(R.id.listItemIcon);
 		iconListIV.setImageResource(listItemsImage.get(position));
 		//Log.e("print position", iconList.size()+"icon item "+iconList.get(position).toString());

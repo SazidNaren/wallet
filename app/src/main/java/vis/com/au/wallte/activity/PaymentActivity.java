@@ -24,9 +24,9 @@ import stripe.example.PaymentForm;
 import stripe.example.TokenList;
 import stripe.example.dialog.ErrorDialogFragment;
 import stripe.example.dialog.ProgressDialogFragment;
+import vis.com.au.Utility.AppConstant;
 import vis.com.au.apppreferences.AppPreferences;
 import vis.com.au.helper.NetworkTask;
-import vis.com.au.Utility.AppText;
 
 
 public class PaymentActivity extends FragmentActivity implements NetworkTask.Result{
@@ -93,15 +93,15 @@ public class PaymentActivity extends FragmentActivity implements NetworkTask.Res
 
     private void changeToPaidVersion() {
         List<NameValuePair> listValue = new ArrayList<NameValuePair>();
-        //listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
-        listValue.add(new BasicNameValuePair("userId",appPreferences.getEmp_id()));
+        //listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", "")));
+        listValue.add(new BasicNameValuePair("Id",appPreferences.getEmp_id()));
         listValue.add(new BasicNameValuePair("action", "updateToPaidVersion"));
-        listValue.add(new BasicNameValuePair("type", "admin"));
+        listValue.add(new BasicNameValuePair("type", "employee"));
         listValue.add(new BasicNameValuePair("email",appPreferences.getEmail()));
         listValue.add(new BasicNameValuePair("paid", Integer.toString(1)));
         networkTask = new NetworkTask(PaymentActivity.this, 1, listValue);
         networkTask.exposePostExecute(PaymentActivity.this);
-        networkTask.execute(AppText.updateToPaidVersion);
+        networkTask.execute(AppConstant.updateToPaidVersion);
     }
 
     private void startProgress() {
@@ -126,6 +126,7 @@ public class PaymentActivity extends FragmentActivity implements NetworkTask.Res
         if(object!=null && !object.equals(""))
         {
             try {
+
                 JSONObject jsonObject = new JSONObject(object);
                 if (jsonObject.optString("MessageID").equals("7683")) {
                     Intent intent=new Intent(PaymentActivity.this,LogInActivity.class);
@@ -133,7 +134,7 @@ public class PaymentActivity extends FragmentActivity implements NetworkTask.Res
                     startActivity(intent);
                     appPreferences.getEditor().clear().commit();
                     SharedPreferences loginSharedPreferences;
-                    loginSharedPreferences = getSharedPreferences(AppText.sharedPreferenceName, 0);
+                    loginSharedPreferences = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
                     SharedPreferences.Editor editor = loginSharedPreferences.edit();
                     editor.clear();
                     editor.commit();

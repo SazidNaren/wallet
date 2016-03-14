@@ -10,7 +10,7 @@
     <string name="paymentMethods">Payment Methods</string>
 
     <string name="endingIn">Card ending in </string>
-    <string name="progressMessage">Creating Token&#8230;</string>
+    <string name="progressMessage">Loading...</string>
     <string name="validationErrors">Validation Errors</string>
 
     <string name="cardNumber">Card Number</string>

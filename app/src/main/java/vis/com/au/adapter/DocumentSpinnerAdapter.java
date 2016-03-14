@@ -2,7 +2,8 @@ package vis.com.au.adapter;
 
 import java.util.ArrayList;
 
-import vis.com.au.Utility.AddDocumentType;import vis.com.au.wallte.R;
+import vis.com.au.Utility.AddDocumentType;
+import vis.com.au.wallte.R;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

@@ -6,7 +6,7 @@ import android.content.Context;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class AppText {
+public class AppConstant {
 	
 	public static String postTypeUser = "1";//employee
 	public static String sharedPreferenceName = "walletEmployee";
@@ -19,6 +19,8 @@ public class AppText {
 	public static String editDocument = "Edit_document.php";
 	public static String uploadDocument = mainUrl+"uploadDoc.php";
 	public static String updateToPaidVersion = mainUrl+"function.php";
+	//http://workerswallet.com.au/walletapi/random.php
+	public static String promoCode = mainUrl+"random.php";
 
 	public static void showToast(final Activity ac,final String text)
 	{

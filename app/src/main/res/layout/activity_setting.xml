@@ -55,12 +55,13 @@
             </LinearLayout>
 
             <ToggleButton
-                android:layout_width="wrap_content"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:textOn=""
                 android:textOff=""
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/selector_toggle" />
         </RelativeLayout>
         <RelativeLayout
@@ -96,12 +97,14 @@
             </LinearLayout>
 
             <ToggleButton
-                android:layout_width="wrap_content"
+                android:id="@+id/repeat_alarm"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:textOn=""
                 android:textOff=""
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/selector_toggle" />
         </RelativeLayout>
     </LinearLayout>

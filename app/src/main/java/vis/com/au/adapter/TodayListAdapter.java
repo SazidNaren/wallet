@@ -52,41 +52,45 @@ public class TodayListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-        if (convertView == null) {
-            LayoutInflater Inflater = LayoutInflater.from(parent.getContext());
-            convertView = Inflater.inflate(R.layout.todaylist_adapter, parent, false);
-            viewHolder = new ViewHolder(convertView);
-            convertView.setTag(viewHolder);
+        try {
+            if (convertView == null) {
+                LayoutInflater Inflater = LayoutInflater.from(parent.getContext());
+                convertView = Inflater.inflate(R.layout.todaylist_adapter, parent, false);
+                viewHolder = new ViewHolder(convertView);
+                convertView.setTag(viewHolder);
 
-        } else {
-            viewHolder = (ViewHolder) convertView.getTag();
+            } else {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            TodayListView todayLV = todayListView.get(position);
+            viewHolder.fileNameTextView.setText(todayLV.fileName);
+
+            if (todayLV.isFirst()) {
+                viewHolder.tvHeader.setVisibility(View.VISIBLE);
+                viewHolder.tvHeader.setText(todayLV.uploadedDate);
+
+            } else {
+                viewHolder.tvHeader.setVisibility(View.GONE);
+            }
+
+
+            if (todayLV.isFolder()) {
+                //viewHolder.uploadFileImageView.setBackgroundResource(R.drawable.open_folder);
+                viewHolder.upLoadedFileTime.setText("Contains " + todayLV.getCount() + " item");
+                builder.build().load(R.drawable.open_folder).error(R.drawable.open_folder).placeholder(R.drawable.open_folder).into(viewHolder.uploadFileImageView);
+
+            } else {
+                viewHolder.upLoadedFileTime.setText(df.format(todayLV.upLoadedTime));
+                String imgUrl = "http://workerswallet.com.au/walletapi/" + todayLV.getFilePath();
+                builder.build().load(imgUrl).error(R.drawable.file_icon).placeholder(R.drawable.file_icon).into(viewHolder.uploadFileImageView);
+
+            }
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
         }
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        TodayListView todayLV = todayListView.get(position);
-        viewHolder.fileNameTextView.setText(todayLV.fileName);
-
-        if (todayLV.isFirst()) {
-            viewHolder.tvHeader.setVisibility(View.VISIBLE);
-            viewHolder.tvHeader.setText(todayLV.uploadedDate);
-
-        } else {
-            viewHolder.tvHeader.setVisibility(View.GONE);
-        }
-
-
-        if (todayLV.isFolder()) {
-            //viewHolder.uploadFileImageView.setBackgroundResource(R.drawable.open_folder);
-            viewHolder.upLoadedFileTime.setText("Contains " + todayLV.getCount() + " item");
-            builder.build().load(R.drawable.open_folder).error(R.drawable.open_folder).placeholder(R.drawable.open_folder).into(viewHolder.uploadFileImageView);
-
-        } else {
-            viewHolder.upLoadedFileTime.setText(df.format(todayLV.upLoadedTime));
-            String imgUrl = "http://workerswallet.com.au/walletapi/" + todayLV.getFilePath();
-            builder.build().load(imgUrl).error(R.drawable.file_icon).placeholder(R.drawable.file_icon).into(viewHolder.uploadFileImageView);
-
-        }
-
-
         return convertView;
     }
 

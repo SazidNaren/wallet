@@ -12,15 +12,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ToggleButton;
 
-public class SettingActivity extends AppCompatActivity {
-
-	RelativeLayout settingRelativeLayout;
-	LinearLayout notification_setting_layout;
-	RelativeLayout manage_relativelayout;
-	AppPreferences appPreferences;
+public class SettingActivity extends AppCompatActivity implements OnClickListener {
+	private RelativeLayout settingRelativeLayout;
+	private LinearLayout notification_setting_layout;
+	private RelativeLayout manage_relativelayout;
+	private AppPreferences appPreferences;
+	private ToggleButton repeatAlarm;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,11 +31,20 @@ public class SettingActivity extends AppCompatActivity {
 		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fab411")));
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
-		getSupportActionBar().setIcon(R.drawable.back_white);
+		getSupportActionBar().setIcon(R.drawable.back_btn2);
+		getSupportActionBar().setTitle("Setting");
 		getSupportActionBar().setTitle("Setting");
 		appPreferences=AppPreferences.getInstance(this);
 		init();
 		settingRelativeLayout = (RelativeLayout) findViewById(R.id.settingRelativeLayout);
+		notification_setting_layout.setOnClickListener(this);
+		manage_relativelayout.setOnClickListener(this);
+		repeatAlarm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				appPreferences.setRepeatAlarmEnable(isChecked);
+			}
+		});
 		settingRelativeLayout.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -46,6 +58,7 @@ public class SettingActivity extends AppCompatActivity {
 	private void init() {
 		notification_setting_layout=(LinearLayout)findViewById(R.id.notification_setting_layout);
 		manage_relativelayout=(RelativeLayout)findViewById(R.id.manage_relativelayout);
+		repeatAlarm=(ToggleButton)findViewById(R.id.repeat_alarm);
 	}
 
 	private void userStatusSettings() {
@@ -74,5 +87,18 @@ public class SettingActivity extends AppCompatActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
+	@Override
+	public void onClick(View v) {
+		int id=v.getId();
+		switch (id)
+		{
+			case R.id.notification_setting_layout:
+
+				break;
+			case R.id.manage_relativelayout:
+				startActivity(new Intent(SettingActivity.this,ManageFolderActivity.class));
+				break;
+		}
+	}
 }

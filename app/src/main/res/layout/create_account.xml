@@ -68,6 +68,7 @@
                         android:layout_gravity="center_vertical"
                         android:background="#00000000"
                         android:padding="10dp"
+                        android:textSize="@dimen/default_text_size"
                         android:textCursorDrawable="@drawable/edittext_cursor"
                         android:hint="James"></EditText>
                 </LinearLayout>
@@ -99,6 +100,7 @@
                         android:layout_gravity="center_vertical"
                         android:background="#00000000"
                         android:padding="10dp"
+                        android:textSize="@dimen/default_text_size"
                         android:textCursorDrawable="@drawable/edittext_cursor"
                         android:hint="Sandman"></EditText>
                 </LinearLayout>
@@ -123,16 +125,17 @@
                         android:textColor="@color/blackColor"
                         android:text="D.O.B"></TextView>
 
-                    <EditText
+                    <TextView
                         android:id="@+id/DboEdt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:background="#00000000"
                         android:padding="10dp"
+                        android:textSize="@dimen/default_text_size"
                         android:textCursorDrawable="@drawable/edittext_cursor"
                         android:drawableRight="@drawable/calander_icon"
-                        android:hint="1/02/1990"></EditText>
+                        android:hint="1/02/1990"></TextView>
                 </LinearLayout>
 
                 <View
@@ -164,6 +167,7 @@
                         android:background="#00000000"
                         android:hint="9808000000"
                         android:padding="10dp"
+                        android:textSize="@dimen/default_text_size"
                         android:textCursorDrawable="@drawable/edittext_cursor"
                         android:inputType="number"></EditText>
                 </LinearLayout>
@@ -195,6 +199,7 @@
                         android:layout_gravity="center_vertical"
                         android:background="#00000000"
                         android:padding="10dp"
+                        android:textSize="@dimen/default_text_size"
                         android:textCursorDrawable="@drawable/edittext_cursor"
                         android:hint="Adelaide, Australia"></EditText>
                 </LinearLayout>
@@ -229,6 +234,7 @@
                         android:background="#00000000"
                         android:hint="james"
                         android:padding="10dp"
+                        android:textSize="@dimen/default_text_size"
                         android:textCursorDrawable="@drawable/edittext_cursor"
                         android:inputType="textPersonName"></EditText>
                 </LinearLayout>
@@ -260,6 +266,7 @@
                         android:layout_gravity="center_vertical"
                         android:background="#00000000"
                         android:padding="10dp"
+                        android:textSize="@dimen/default_text_size"
                         android:textCursorDrawable="@drawable/edittext_cursor"
                         android:hint="james@gmail.com"
                         android:inputType="textEmailAddress"></EditText>
@@ -294,6 +301,7 @@
                         android:layout_gravity="center_vertical"
                         android:background="#00000000"
                         android:hint="******"
+                        android:textSize="@dimen/default_text_size"
                         android:padding="10dp"
                         android:textCursorDrawable="@drawable/edittext_cursor"
                         android:inputType="textPassword"></EditText>
@@ -327,6 +335,7 @@
                         android:layout_gravity="center_vertical"
                         android:background="#00000000"
                         android:hint="******"
+                        android:textSize="@dimen/default_text_size"
                         android:padding="10dp"
                         android:textCursorDrawable="@drawable/edittext_cursor"
                         android:inputType="textPassword"></EditText>
@@ -347,6 +356,7 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:checked="true"
                         android:layout_marginLeft="10dp"></CheckBox>
 
                     <TextView

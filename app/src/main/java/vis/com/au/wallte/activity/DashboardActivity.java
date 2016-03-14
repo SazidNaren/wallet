@@ -14,17 +14,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import vis.com.au.Utility.AppConstant;
 import vis.com.au.apppreferences.AppPreferences;
 import vis.com.au.helper.DocumentsComparator;
 import vis.com.au.helper.NetworkTask;
-import vis.com.au.Utility.AppText;
 import vis.com.au.Utility.TodayListView;
 import vis.com.au.adapter.TodayListAdapter;
 import vis.com.au.wallte.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -75,7 +77,7 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
         todayUpLoadedListView = (ListView) findViewById(R.id.todayUpLoadedListView);
 
        /* List<NameValuePair> listValue = new ArrayList<NameValuePair>();
-        listValue.add(new BasicNameValuePair("emp_id", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
+        listValue.add(new BasicNameValuePair("emp_id", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", "")));
         listValue.add(new BasicNameValuePair("type", "employee"));
 
         networkTask = new NetworkTask(DashboardActivity.this, GET_DOC_LIST, listValue);
@@ -91,15 +93,21 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
                     i.putExtra("docId", td.docId);
                     i.putExtra("docName", td.getFileName());
                     startActivity(i);
-                }
-                else
-                {
+                } else {
                     Intent i = new Intent(DashboardActivity.this, FolderListActivity.class);
                     i.putExtra("folderId", td.docId);
                     i.putExtra("folderName", td.getFileName());
                     startActivity(i);
                 }
 
+            }
+        });
+
+        todayUpLoadedListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view,int position, long id) {
+                showDialogForDeleteRename(position,todayList.get(position).isFolder());
+                return true;
             }
         });
 
@@ -110,6 +118,7 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+
 
         searchUploadFileEditText.addTextChangedListener(new TextWatcher() {
 
@@ -126,6 +135,8 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
                 }
                 todaysListAdapter = new TodayListAdapter(tempArrayList, DashboardActivity.this);
                 todayUpLoadedListView.setAdapter(todaysListAdapter);
+                appPreferences.setCountDoc(tempArrayList.size() + "");
+                refreshDrawer();
             }
 
             @Override
@@ -143,11 +154,110 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
         });
     }
 
+    private void showDialogForDeleteRename(final int position,boolean isFolder) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        if(isFolder) {
+            builder.setItems(R.array.manage_folder, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (which == 0)
+                        createFolderDialog(position);
+                    else
+                        deleteFolder(position);
+                    //rename
+                }
+            });
+        }
+        else
+        {
+            builder.setItems(R.array.manage_document, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (which == 0)
+                    {
+                        Intent i = new Intent(DashboardActivity.this, DisplayUserDetails_Activity.class);
+                        i.putExtra("docId", todayList.get(position).docId);
+                        i.putExtra("docName", todayList.get(position).getFileName());
+                        startActivity(i);
+                    }
+                    else
+                        deleteDocument(position);
+                    //rename
+                }
+            });
+        }
+        builder.show();
+    }
+
+    private void createFolderDialog(final int position) {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setCancelable(false);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.create_folder_dialog);
+        dialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        final EditText etFolderName = (EditText) dialog.findViewById(R.id.etFolderName);
+        etFolderName.setText(todayList.get(position).getFileName());
+        TextView header=(TextView)dialog.findViewById(R.id.header);
+        header.setText("Rename Folder");
+        TextView tvOk = (TextView) dialog.findViewById(R.id.tvCreate);
+        tvOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!etFolderName.getText().toString().equals("")) {
+                    dialog.dismiss();
+                    renameFolder(etFolderName.getText().toString(),position);
+                } else
+                    Toast.makeText(DashboardActivity.this, "Folder name can't be empty", Toast.LENGTH_LONG).show();
+
+            }
+        });
+        TextView tvCancel = (TextView) dialog.findViewById(R.id.tvCancel);
+        tvCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+
+
+    }
+
+    private void deleteFolder(int position) {
+        List<NameValuePair> listValue = new ArrayList<NameValuePair>();
+        listValue.add(new BasicNameValuePair("actions", "DeleteFolder"));
+        listValue.add(new BasicNameValuePair("folderId", Integer.toString(Integer.parseInt(todayList.get(position).getDocId()))));
+        networkTask = new NetworkTask(DashboardActivity.this, 1003, listValue);
+        networkTask.exposePostExecute(DashboardActivity.this);
+        networkTask.execute("http://workerswallet.com.au/walletapi/paid_basic.php");
+    }
+
+    private void deleteDocument(int position) {
+        List<NameValuePair> listValue = new ArrayList<NameValuePair>();
+        listValue.add(new BasicNameValuePair("actions", "DeleteDoc"));
+        listValue.add(new BasicNameValuePair("docId", Integer.toString(Integer.parseInt(todayList.get(position).getDocId()))));
+        networkTask = new NetworkTask(DashboardActivity.this, 1003, listValue);
+        networkTask.exposePostExecute(DashboardActivity.this);
+        networkTask.execute("http://workerswallet.com.au/walletapi/paid_basic.php");
+    }
+
+    private void renameFolder(String s, int position) {
+        List<NameValuePair> listValue = new ArrayList<NameValuePair>();
+        listValue.add(new BasicNameValuePair("actions", "RenameFolder"));
+        listValue.add(new BasicNameValuePair("folderName", s));
+        listValue.add(new BasicNameValuePair("folderId", Integer.toString(Integer.parseInt(todayList.get(position).getDocId()))));
+        networkTask = new NetworkTask(DashboardActivity.this, 1004, listValue);
+        networkTask.exposePostExecute(DashboardActivity.this);
+        networkTask.execute("http://workerswallet.com.au/walletapi/paid_basic.php");
+    }
+
     private void hitAllDataApi() {
         List<NameValuePair> listValue = new ArrayList<NameValuePair>();
         listValue.add(new BasicNameValuePair("actions", "getAllDocFolder"));
         listValue.add(new BasicNameValuePair("Type", "1"));
-        listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
+        listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", "")));
         listValue.add(new BasicNameValuePair("fetch", "All"));
 
         networkTask = new NetworkTask(DashboardActivity.this, GET_DOC_LIST, listValue);
@@ -200,9 +310,9 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
                 if (!etFolderName.getText().toString().equals("")) {
                     dialog.dismiss();
                     List<NameValuePair> listValue = new ArrayList<NameValuePair>();
-                    listValue.add(new BasicNameValuePair("emp_id", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
+                    listValue.add(new BasicNameValuePair("userId",Integer.toString(Integer.parseInt(getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", "")))));
                     listValue.add(new BasicNameValuePair("folderName", etFolderName.getText().toString()));
-                    listValue.add(new BasicNameValuePair("type", "1"));
+                    listValue.add(new BasicNameValuePair("type", Integer.toString(1)));
                     listValue.add(new BasicNameValuePair("actions", "NewFolder"));
                     networkTask = new NetworkTask(DashboardActivity.this, CREATE_FOLDER, listValue);
                     networkTask.exposePostExecute(DashboardActivity.this);
@@ -233,7 +343,6 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
             for (int i = 0; i < jsonArray.length(); i++) {
                 TodayListView todayListView;
                 JSONArray jsonSubArray = jsonArray.getJSONArray(i);
-
                 for (int j = 0; j < jsonSubArray.length(); j++) {
                     todayListView = new TodayListView();
                     if (i == 0) {
@@ -312,7 +421,8 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
 
             todaysListAdapter = new TodayListAdapter(todayList, DashboardActivity.this);
             todayUpLoadedListView.setAdapter(todaysListAdapter);
-
+            appPreferences.setCountDoc(todayList.size()+"");
+            refreshDrawer();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -328,7 +438,7 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
             tLV.fileName = jObject.getString("documentType");
             tLV.upLoadedTime = jObject.getString("UploadedDate");
             String cerImage = jObject.getString("filePath");
-            SharedPreferences preferences = getSharedPreferences(AppText.sharedPreferenceName, 0);
+            SharedPreferences preferences = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
             Editor edit = preferences.edit();
             edit.putString("certImage", cerImage);
             edit.commit();
@@ -500,15 +610,23 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
     public void resultFromNetwork(String object, int id, Object arg1, Object arg2) {
         if (id == GET_DOC_LIST) {
             //  Toast.makeText(DashboardActivity.this, object, Toast.LENGTH_LONG).show();
+            if (todaysListAdapter != null) {
+                todayList.clear();
+            }
             getDocuments(object);
-        } else if (id == CREATE_FOLDER) {
+        }
+        else if(id==1003)
+            hitAllDataApi();
+        else if(id==1004)
+            hitAllDataApi();
+        else if (id == CREATE_FOLDER) {
             if (object != null && !object.equals("")) {
                 try {
                     JSONObject main = new JSONObject(object);
                     if (main.has("status")) {
                         if (main.optString("status").equals("1")) {
                             Toast.makeText(DashboardActivity.this, "Folder created successfully", Toast.LENGTH_LONG).show();
-
+                            hitAllDataApi();
                             // we will notify the adapter
 
                         } else
@@ -527,10 +645,6 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
     @Override
     protected void onResume() {
         hitAllDataApi();
-        if (todaysListAdapter != null) {
-            todaysListAdapter.notifyDataSetChanged();
-            todayList.clear();
-        }
         super.onResume();
     }
 }

@@ -9,13 +9,15 @@ import java.util.regex.Pattern;
 
 import org.json.JSONObject;
 
-import vis.com.au.Utility.AppText;
+import vis.com.au.Utility.AppConstant;
 import vis.com.au.Utility.MyLocation;
 import vis.com.au.Utility.MyLocation.LocationResult;
+import vis.com.au.activity.PromoCodeScreen;
 import vis.com.au.apppreferences.AppPreferences;
 import vis.com.au.support.Httprequest;
 import vis.com.au.wallte.R;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.ProgressDialog;
@@ -40,6 +42,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -50,16 +53,16 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
 
     private static int RESULT_LOAD_IMAGE = 1;
     private String fileName;
-    LocationManager lManager;
-    MyLocation myLocation = new MyLocation();
+    private LocationManager lManager;
+    private MyLocation myLocation = new MyLocation();
     private ImageView imgView;
     private DatePickerDialog fromDatePickerDialog;
     private SimpleDateFormat dateFormatter;
-    private EditText firstNameEdt, lastNameEdt, DboEdt, mobileEdt, addressEdt, emailAddressEditText, userNameEdt, passwordEdt, confirmPassEdt;
-    private TextView notificationTextViewImage;
-    Toolbar toolBar;
-    AppPreferences appPreferences;
-
+    private EditText firstNameEdt, lastNameEdt, mobileEdt, addressEdt, emailAddressEditText, userNameEdt, passwordEdt, confirmPassEdt;
+    private TextView notificationTextViewImage,DboEdt;
+    private Toolbar toolBar;
+    private AppPreferences appPreferences;
+    private CheckBox checkBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +101,7 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
 
         firstNameEdt = (EditText) findViewById(R.id.firstNameEdt);
         lastNameEdt = (EditText) findViewById(R.id.lastNameEdt);
-        DboEdt = (EditText) findViewById(R.id.DboEdt);
+        DboEdt = (TextView) findViewById(R.id.DboEdt);
         mobileEdt = (EditText) findViewById(R.id.mobileEdt);
         addressEdt = (EditText) findViewById(R.id.addressEdt);
         emailAddressEditText = (EditText) findViewById(R.id.emailAddressEditText);
@@ -106,7 +109,7 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
         passwordEdt = (EditText) findViewById(R.id.passwordEdt);
         confirmPassEdt = (EditText) findViewById(R.id.confirmPassEdt);
         notificationTextViewImage = (TextView) findViewById(R.id.notificationTextViewImage);
-
+        checkBox=(CheckBox)findViewById(R.id.check);
     }
 
     private void sendDateToServer() {
@@ -127,11 +130,11 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
 
-        SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+        SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
         try {
 
             final JSONObject obj = new JSONObject();
-            obj.put("postType", AppText.postTypeUser);
+            obj.put("postType", AppConstant.postTypeUser);
             obj.put("userName", userNameEdt.getText().toString());
             obj.put("fName", firstname);
             obj.put("lName", lastname);
@@ -153,13 +156,12 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
                 public void run() {
                     try {
 
-                        String returnValue = Httprequest.makeHttpRequest(obj.toString(), AppText.signUpURL);
+                        String returnValue = Httprequest.makeHttpRequest(obj.toString(), AppConstant.signUpURL);
                         Log.e("DataSend", obj.toString());
                         progressDialog.dismiss();
-                        AppText.showToast(RegistrationScreen.this, "Account has been Created");
-                        Intent i = new Intent(RegistrationScreen.this, AppInfoActivity.class);
-                        startActivity(i);
-                        finish();
+                        AppConstant.showToast(RegistrationScreen.this, "Account has been Created");
+                        Intent intent = new Intent(RegistrationScreen.this, PromoCodeScreen.class);
+                        startActivity(intent);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -212,10 +214,11 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
                 byte[] byte_arr = stream.toByteArray();
                 // Encode Image to String
                 fileName = Base64.encodeToString(byte_arr, 0);
-                SharedPreferences shard = getSharedPreferences(AppText.sharedPreferenceName, 0);
+                SharedPreferences shard = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
                 Editor edit = shard.edit();
                 edit.putString("oldImage", fileName);
                 edit.commit();
+                notificationTextViewImage.setVisibility(View.INVISIBLE);
                 Log.e("fileName", fileName + "");
                 // Put file name in Async Http Post Param which will used in Php web app
 
@@ -281,32 +284,37 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(inputStr);
         if (!matcher.matches() || emailUser.equals("")) {
-            AppText.EdittextError(emailAddressEditText, "enter a valid email address");
+            AppConstant.EdittextError(emailAddressEditText, "enter a valid email address");
             valid = false;
         }
         //check if password empty
         if (paswordUser.equals("")) {
-            AppText.EdittextError(passwordEdt, "Password can't be empty");
+            AppConstant.EdittextError(passwordEdt, "Password can't be empty");
             valid = false;
         }
         //check the passwords
         if (!paswordUser.equals(retypePassword)) {
-            AppText.EdittextError(confirmPassEdt, "Password Mismatch");
+            AppConstant.EdittextError(confirmPassEdt, "Password Mismatch");
             valid = false;
         }
         //check if firsts name empty
         if (firstname.isEmpty() || firstname.length() < 3) {
-            AppText.EdittextError(firstNameEdt, "at least 3 characters");
+            AppConstant.EdittextError(firstNameEdt, "at least 3 characters");
             valid = false;
         }
         //check if last name empty
         if (lastname.equals("")) {
-            AppText.EdittextError(lastNameEdt, "Pleae Enter Last Name");
+            AppConstant.EdittextError(lastNameEdt, "Pleae Enter Last Name");
             valid = false;
+        }
+        if(!checkBox.isChecked()) {
+            valid = false;
+            Toast.makeText(getApplicationContext(), "Please accept the term and condition.",
+                    Toast.LENGTH_LONG).show();
         }
         //check image is slected or not
        /* if (imgView.getDrawable() == null) {
-            AppText.EdittextError(notificationTextViewImage, "Pleae select image");
+            AppConstant.EdittextError(notificationTextViewImage, "Pleae select image");
             valid = false;
         }*/
         return valid;
@@ -334,7 +342,7 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
                 });
 
 
-                SharedPreferences locationpref = getSharedPreferences(AppText.sharedPreferenceName, 0);
+                SharedPreferences locationpref = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
                 SharedPreferences.Editor prefsEditor = locationpref.edit();
                 prefsEditor.putString("emp_lang", Longitude + "");
                 prefsEditor.putString("emp_lat", Latitude + "");
@@ -349,7 +357,7 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
     private void setDateField() {
         DboEdt.setOnClickListener(this);
         Calendar newCalendar = Calendar.getInstance();
-        fromDatePickerDialog = new DatePickerDialog(this, new OnDateSetListener() {
+        fromDatePickerDialog = new DatePickerDialog(this, AlertDialog.THEME_HOLO_LIGHT,new OnDateSetListener() {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);

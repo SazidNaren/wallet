@@ -6,7 +6,7 @@ import java.util.Locale;
 
 import org.json.JSONObject;
 
-import vis.com.au.Utility.AppText;
+import vis.com.au.Utility.AppConstant;
 import vis.com.au.support.Httprequest;
 import vis.com.au.wallte.R;
 
@@ -90,9 +90,9 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
 
                 } else {
 
-                    final ProgressDialog pg = AppText.progressDialog(ProfileActivity.this, "Progressing for update...");
+                    final ProgressDialog pg = AppConstant.progressDialog(ProfileActivity.this, "Progressing for update...");
                     pg.show();
-                    SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+                    SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
                     final String empId = shared.getString("empId", null);
                     if (empId == null) {
                         runOnUiThread(new Runnable() {
@@ -110,7 +110,7 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                             public void run() {
                                 try {
                                     final JSONObject jobj = new JSONObject();
-                                    jobj.put("postType", AppText.postTypeUser);
+                                    jobj.put("postType", AppConstant.postTypeUser);
                                     jobj.put("emp_id", empId);
                                     jobj.put("emp_email", emailTV.getText().toString());
                                     jobj.put("emp_first_name", userFirstName.getText().toString());
@@ -121,14 +121,14 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                                     jobj.put("emp_email", userEmail.getText().toString());
                                     jobj.put("emp_username", userName.getText().toString());
                                     if (fileName == null) {
-                                        jobj.put("emp_avatar", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("oldImage", null));
+                                        jobj.put("emp_avatar", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("oldImage", null));
                                     } else {
-                                        jobj.put("emp_avatar", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("userImage", null));
+                                        jobj.put("emp_avatar", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("userImage", null));
                                     }
-                                    jobj.put("emp_lat", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("Latitude", ""));
-                                    jobj.put("emp_lang", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("Longitude", ""));
+                                    jobj.put("emp_lat", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("Latitude", ""));
+                                    jobj.put("emp_lang", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("Longitude", ""));
 
-                                    Httprequest.makeHttpRequest(jobj.toString(), AppText.empProfile);
+                                    Httprequest.makeHttpRequest(jobj.toString(), AppConstant.empProfile);
                                     Log.e("data send to server", jobj + "");
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -143,12 +143,12 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                                         try {
                                             JSONObject jObject = new JSONObject(returnFromEmpProfile);
                                             String empId = jObject.getString("emp_id");
-                                            SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+                                            SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
                                             Editor ed = shared.edit();
                                             ed.putString("empId", empId);
                                             ed.putString("empInfo", jObject.toString());
                                             ed.commit();
-                                            AppText.showToast(ProfileActivity.this, "sucessfully updated");
+                                            AppConstant.showToast(ProfileActivity.this, "sucessfully updated");
                                             //restart Activity
                                             //startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
                                             pg.dismiss();
@@ -183,9 +183,9 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                 editProfileBtn.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        final ProgressDialog pg = AppText.progressDialog(ProfileActivity.this, "Progressing for update...");
+                        final ProgressDialog pg = AppConstant.progressDialog(ProfileActivity.this, "Progressing for update...");
                         pg.show();
-                        SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+                        SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
                         final String empId = shared.getString("empId", null);
                         if (empId == null) {
                             runOnUiThread(new Runnable() {
@@ -203,7 +203,7 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                                 public void run() {
                                     try {
                                         final JSONObject jobj = new JSONObject();
-                                        jobj.put("postType", AppText.postTypeUser);
+                                        jobj.put("postType", AppConstant.postTypeUser);
                                         jobj.put("emp_id", empId);
                                         jobj.put("emp_email", emailTV.getText().toString());
                                         jobj.put("emp_first_name", userFirstName.getText().toString());
@@ -213,14 +213,14 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                                         jobj.put("emp_address", userAddress.getText().toString());
                                         jobj.put("emp_username", userName.getText().toString());
                                         if (fileName == null) {
-                                            jobj.put("emp_avatar", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("oldImage", null));
+                                            jobj.put("emp_avatar", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("oldImage", null));
                                         } else {
-                                            jobj.put("emp_avatar", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("userImage", null));
+                                            jobj.put("emp_avatar", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("userImage", null));
                                         }
-                                        jobj.put("emp_lat", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("Latitude", ""));
-                                        jobj.put("emp_lang", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("Longitude", ""));
+                                        jobj.put("emp_lat", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("Latitude", ""));
+                                        jobj.put("emp_lang", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("Longitude", ""));
 
-                                        Httprequest.makeHttpRequest(jobj.toString(), AppText.empProfile);
+                                        Httprequest.makeHttpRequest(jobj.toString(), AppConstant.empProfile);
                                         Log.e("data send to server", jobj + "");
                                     } catch (Exception e) {
                                         e.printStackTrace();
@@ -235,12 +235,12 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                                             try {
                                                 JSONObject jObject = new JSONObject(returnFromEmpProfile);
                                                 String empId = jObject.getString("emp_id");
-                                                SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+                                                SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
                                                 Editor ed = shared.edit();
                                                 ed.putString("empId", empId);
                                                 ed.putString("empInfo", jObject.toString());
                                                 ed.commit();
-                                                AppText.showToast(ProfileActivity.this, "sucessfully updated");
+                                                AppConstant.showToast(ProfileActivity.this, "sucessfully updated");
                                                 //restart Activity
                                                 startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
                                                 pg.dismiss();
@@ -293,7 +293,7 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
 
     private void setTheValuesInField() {
         try {
-            SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+            SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
             JSONObject jObj = new JSONObject(shared.getString("empInfo", null));
             Log.e("returnFirst", jObj + "");
             emailTV.setText(jObj.getString("emp_email"));
@@ -305,7 +305,7 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
             userEmail.setText(jObj.getString("emp_email"));
             String lat = jObj.getString("emp_lat");
             String lng = jObj.getString("emp_lang");
-            /*SharedPreferences sharedPre = getSharedPreferences(AppText.sharedPreferenceName, 0);
+            /*SharedPreferences sharedPre = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
             Editor edit = sharedPre.edit();
 			edit.putString("empLat", lat);
 			edit.putString("empLang", lng);
@@ -328,7 +328,7 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                     exception.printStackTrace();
                 }
             });
-            builder.build().load(empImage).placeholder(R.drawable.suscribe).error(R.drawable.sss_error).into(profile_image);
+            builder.build().load(empImage).placeholder(R.drawable.default_profile_image).error(R.drawable.default_profile_image).into(profile_image);
 
             userNameEditText.setText(jObj.getString("emp_username"));
 
@@ -377,7 +377,7 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                 byte[] byte_arr = stream.toByteArray();
                 // Encode Image to String
                 fileName = Base64.encodeToString(byte_arr, 0);
-                SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+                SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
                 Editor edit = shared.edit();
                 edit.putString("userImage", fileName);
                 edit.commit();

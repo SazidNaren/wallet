@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_10dp"
+    android:background="#aaaaaa">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/heading_text_size"
+            android:textColor="@color/whiteColor"
+            android:text="Enter Promo Code"/>
+        <ImageView
+            android:id="@+id/cancelBtn"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:src="@drawable/cross"
+            android:layout_weight="2"/>
+    </LinearLayout>
+    <EditText
+        android:id="@+id/promoCodeEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#AAAAAA"
+        android:layout_margin="@dimen/margin_10dp"
+        android:padding="@dimen/margin_10dp"
+        android:background="@color/whiteColor"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/proceedBtn"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="4"
+            android:layout_marginRight="@dimen/margin_10dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/buttonBrandColor"
+            android:text="Proceed"
+            android:textColor="@color/whiteColor" />
+        <Button
+            android:id="@+id/appluCodeBtn"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:background="@color/buttonBrandColor"
+            android:text="Apply Code"
+            android:textColor="@color/whiteColor" />
+    </LinearLayout>
+</LinearLayout>

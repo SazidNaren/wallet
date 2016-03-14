@@ -74,23 +74,23 @@ public final class R {
 		public static final int default_line_indicator_gap_width = 0x7f080051;
 		public static final int default_line_indicator_line_width = 0x7f080052;
 		public static final int default_line_indicator_stroke_width = 0x7f080053;
-		public static final int default_title_indicator_clip_padding = 0x7f080054;
-		public static final int default_title_indicator_footer_indicator_height = 0x7f080055;
-		public static final int default_title_indicator_footer_indicator_underline_padding = 0x7f080056;
-		public static final int default_title_indicator_footer_line_height = 0x7f080057;
-		public static final int default_title_indicator_footer_padding = 0x7f080058;
-		public static final int default_title_indicator_text_size = 0x7f080059;
-		public static final int default_title_indicator_title_padding = 0x7f08005a;
-		public static final int default_title_indicator_top_padding = 0x7f08005b;
+		public static final int default_title_indicator_clip_padding = 0x7f080055;
+		public static final int default_title_indicator_footer_indicator_height = 0x7f080056;
+		public static final int default_title_indicator_footer_indicator_underline_padding = 0x7f080057;
+		public static final int default_title_indicator_footer_line_height = 0x7f080058;
+		public static final int default_title_indicator_footer_padding = 0x7f080059;
+		public static final int default_title_indicator_text_size = 0x7f08005a;
+		public static final int default_title_indicator_title_padding = 0x7f08005b;
+		public static final int default_title_indicator_top_padding = 0x7f08005c;
 	}
 	public static final class drawable {
-		public static final int vpi__tab_indicator = 0x7f0200ea;
-		public static final int vpi__tab_selected_focused_holo = 0x7f0200eb;
-		public static final int vpi__tab_selected_holo = 0x7f0200ec;
-		public static final int vpi__tab_selected_pressed_holo = 0x7f0200ed;
-		public static final int vpi__tab_unselected_focused_holo = 0x7f0200ee;
-		public static final int vpi__tab_unselected_holo = 0x7f0200ef;
-		public static final int vpi__tab_unselected_pressed_holo = 0x7f0200f0;
+		public static final int vpi__tab_indicator = 0x7f0200ec;
+		public static final int vpi__tab_selected_focused_holo = 0x7f0200ed;
+		public static final int vpi__tab_selected_holo = 0x7f0200ee;
+		public static final int vpi__tab_selected_pressed_holo = 0x7f0200ef;
+		public static final int vpi__tab_unselected_focused_holo = 0x7f0200f0;
+		public static final int vpi__tab_unselected_holo = 0x7f0200f1;
+		public static final int vpi__tab_unselected_pressed_holo = 0x7f0200f2;
 	}
 	public static final class id {
 		public static final int bottom = 0x7f0e0026;

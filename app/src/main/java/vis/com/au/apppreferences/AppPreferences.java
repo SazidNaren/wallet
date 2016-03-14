@@ -33,6 +33,14 @@ public class AppPreferences {
 		editor.putBoolean("is_paid_version", isPaidVersion);
 		editor.commit();
 	}
+	public boolean isRepeatAlarmEnable() {
+		return sharedPreferences.getBoolean("is_repeat_alarm", false);
+	}
+
+	public void setRepeatAlarmEnable(boolean isRepeatAlarm) {
+		editor.putBoolean("is_repeat_alarm", isRepeatAlarm);
+		editor.commit();
+	}
 
 	public String getEmp_id() {
 		return sharedPreferences.getString("employee_id", "");
@@ -43,6 +51,22 @@ public class AppPreferences {
 		editor.commit();
 	}
 
+	public String getCountDoc() {
+		return sharedPreferences.getString("countDoc", "");
+	}
+
+	public void setCountDoc(String email) {
+		editor.putString("countDoc", email);
+		editor.commit();
+	}
+	public String getAddress() {
+		return sharedPreferences.getString("address", "");
+	}
+
+	public void setAddress(String email) {
+		editor.putString("address", email);
+		editor.commit();
+	}
 	public String getEmail() {
 		return sharedPreferences.getString("email_id", "");
 	}

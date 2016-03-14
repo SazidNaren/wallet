@@ -20,7 +20,15 @@
 		<item>Single shot</item>
 	</string-array>
 
-    <string-array name="pagesegmentationmodes">
+	<string-array name="manage_folder">
+		<item>Rename Folder</item>
+		<item>Delete Folder</item>
+	</string-array>
+	<string-array name="manage_document">
+		<item>Edit Document</item>
+		<item>Delete Document</item>
+	</string-array>
+	<string-array name="pagesegmentationmodes">
         <item>Auto</item>
         <item>Auto (no OSD)</item>
         <item>Single block</item>

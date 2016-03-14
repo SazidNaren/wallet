@@ -26,7 +26,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import vis.com.au.Utility.AppText;
+import vis.com.au.Utility.AppConstant;
 import vis.com.au.Utility.FolderItemPojo;
 import vis.com.au.adapter.FolderItemAdapter;
 import vis.com.au.helper.NetworkTask;
@@ -75,7 +75,7 @@ public class FolderListActivity extends ActionBarActivity implements NetworkTask
         listValue.add(new BasicNameValuePair("actions", "getFolderDoc"));
         listValue.add(new BasicNameValuePair("Type", "1"));
         listValue.add(new BasicNameValuePair("folderId", folderId));
-        listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
+        listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", "")));
 
         networkTask = new NetworkTask(FolderListActivity.this, GET_DOC_LIST, listValue);
         networkTask.exposePostExecute(FolderListActivity.this);

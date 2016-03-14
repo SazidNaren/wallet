@@ -81,7 +81,7 @@ public class ResultsActivity extends Activity implements NetworkTask.Result{
 
   /*  private void sendFetchedTextToServer() {
         List<NameValuePair> listValue = new ArrayList<NameValuePair>();
-        listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
+        listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", "")));
         listValue.add(new BasicNameValuePair("type", "employee"));
         listValue.add(new BasicNameValuePair("dateOfIssue", "2011-11-11"));
         listValue.add(new BasicNameValuePair("dateOfExpire", "2017-11-11"));
@@ -96,7 +96,7 @@ public class ResultsActivity extends Activity implements NetworkTask.Result{
         listValue.add(new BasicNameValuePair("backAvatars",""));
         networkTask = new NetworkTask(ResultsActivity.this, 1, listValue);
         networkTask.exposePostExecute(ResultsActivity.this);
-        networkTask.execute(AppText.uploadDocument);
+        networkTask.execute(AppConstant.uploadDocument);
     }*/
 
     @Override

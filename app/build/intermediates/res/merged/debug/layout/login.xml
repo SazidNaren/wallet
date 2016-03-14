@@ -15,18 +15,13 @@
         android:padding="10dp" />
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tvBack">
-
         <LinearLayout
             android:id="@+id/loginLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <ImageView
@@ -69,11 +64,10 @@
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:background="@color/buttonBrandColor"
                 android:text="Sign In"
                 android:textColor="@color/whiteColor" />
         </LinearLayout>
-    </ScrollView>
 
 </RelativeLayout><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/layout/login.xml -->

@@ -3,7 +3,7 @@ package vis.com.au.wallte.activity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import vis.com.au.Utility.AppText;
+import vis.com.au.Utility.AppConstant;
 import vis.com.au.Utility.CircleImageView;
 import vis.com.au.support.Httprequest;
 import vis.com.au.wallte.R;
@@ -37,7 +37,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
     private String confirmPin;
     private CircleImageView profilePic;
     private TextView tvEmail;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +54,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         tvEmail = (TextView) findViewById(R.id.tvEmail);
         profilePic = (CircleImageView) findViewById(R.id.profile_image);
 
-        SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+        SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
         JSONObject jObj = null;
         try {
             jObj = new JSONObject(shared.getString("empInfo", null));
@@ -86,11 +85,11 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
                 if (currentPasswordEditText.getText().toString().equalsIgnoreCase(newPasswordEditText.getText().toString())) {
                     Toast.makeText(ChangePasswordActivity.this, "Current password and new password cannot be same", Toast.LENGTH_SHORT).show();
-                } else if (!newPasswordEditText.getText().toString().equalsIgnoreCase(currentPasswordEditText.getText().toString())) {
-                    Toast.makeText(ChangePasswordActivity.this, "Current password and confirm password must be same", Toast.LENGTH_SHORT).show();
+                } else if (!newPasswordEditText.getText().toString().equalsIgnoreCase(confirmPasswordEditText.getText().toString())) {
+                    Toast.makeText(ChangePasswordActivity.this, "New password and confirm password must be same", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    final ProgressDialog pg = AppText.progressDialog(ChangePasswordActivity.this, "Resetting password...");
+                    final ProgressDialog pg = AppConstant.progressDialog(ChangePasswordActivity.this, "Resetting password...");
                     pg.show();
                     checkValidation();
                     try {
@@ -100,16 +99,17 @@ public class ChangePasswordActivity extends AppCompatActivity {
                             public void run() {
                                 JSONObject jobj = new JSONObject();
                                 try {
-                                    jobj.put("postType", AppText.postTypeUser);
-                                    jobj.put("userId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", null));
+                                    jobj.put("postType", AppConstant.postTypeUser);
+                                    jobj.put("userId", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", null));
                                     jobj.put("pwd", oldPin);
                                     jobj.put("rePwd", newPin);
 
-                                    Httprequest.makeHttpRequest(jobj.toString(), AppText.reSetPass);
+                                    Httprequest.makeHttpRequest(jobj.toString(), AppConstant.reSetPass);
                                     Log.e("sendToserverReSetPass", jobj + "");
                                     String returnMessage = Httprequest.retValue;
                                     Log.e("returnMessage", returnMessage + "");
-                                    AppText.showToast(ChangePasswordActivity.this, "Password is successfully reset");
+                                    if(!returnMessage.trim().equals(""))
+                                    AppConstant.showToast(ChangePasswordActivity.this, "Password is successfully reset");
                                     pg.dismiss();
                                 } catch (JSONException e) {
                                     pg.dismiss();
@@ -151,17 +151,17 @@ public class ChangePasswordActivity extends AppCompatActivity {
         confirmPin = confirmPasswordEditText.getText().toString();
 
         if (oldPin.length() < 1 || oldPin.equals("")) {
-            AppText.EdittextError(newPasswordEditText, "emptyField");
+            AppConstant.EdittextError(newPasswordEditText, "emptyField");
             valid = false;
         }
         //check if password empty
         if (newPin.equals("") || newPin.length() < 6 || newPin.length() > 10) {
-            AppText.EdittextError(newPasswordEditText, "between 6 and 10 alphanumeric characters");
+            AppConstant.EdittextError(newPasswordEditText, "between 6 and 10 alphanumeric characters");
             valid = false;
         }
         //check the passwords
         if (!newPin.equals(confirmPin)) {
-            AppText.EdittextError(confirmPasswordEditText, "Password Mismatch");
+            AppConstant.EdittextError(confirmPasswordEditText, "Password Mismatch");
             valid = false;
         }
 

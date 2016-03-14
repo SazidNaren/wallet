@@ -41,6 +41,7 @@
         <activity
             android:name=".activity.LogInActivity"
             android:label="@string/title_activity_log_in_"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait">
         </activity>
         <activity
@@ -68,7 +69,6 @@
         </activity>
         <activity
             android:name=".activity.ResultsActivity"
-            android:label="@string/title_text_from_image"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.MinWidth"
             android:screenOrientation="portrait">
         </activity>
@@ -124,17 +124,17 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
+            android:name="vis.com.au.activity.NotificationActivity"
+            android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
             android:name=".activity.ChangePasswordActivity"
             android:label="@string/title_activity_change_password"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".activity.SubscribeActivity"
-            android:label="@string/title_activity_subscribe"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".activity.NotificationActivity"
             android:label="@string/title_activity_subscribe"
             android:screenOrientation="portrait">
         </activity>
@@ -161,6 +161,21 @@
         <activity
             android:name=".activity.ShareScreen"
             android:label="Share Screen"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.ManageFolderActivity"
+            android:label="Share Screen"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="vis.com.au.activity.PromoCodeScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="vis.com.au.activity.FolderList"
+            android:label="Folder Screen"
             android:screenOrientation="portrait">
         </activity>
     </application>

@@ -58,7 +58,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="ok">OK</string>
     <string name="paymentMethods">Payment Methods</string>
-    <string name="progressMessage">Creating Token…</string>
+    <string name="progressMessage">Loading...</string>
     <string name="save">PAY</string>
     <string name="validationErrors">Validation Errors</string>
     <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/styles.xml -->

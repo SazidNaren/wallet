@@ -1,6 +1,6 @@
 package vis.com.au.wallte.activity;
 
-import vis.com.au.Utility.AppText;
+import vis.com.au.Utility.AppConstant;
 import vis.com.au.adapter.ViewPagerAdater;
 import vis.com.au.wallte.R;
 
@@ -28,7 +28,7 @@ public class AppInfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.app_info);
-        //SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+        //SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
         /*String checkUserId = shared.getString("emp_id",-1+"");
 		if(checkUserId != null){
 			startActivity(new Intent(AppInfoActivity.this,DashboardActivity.class));
@@ -41,7 +41,7 @@ public class AppInfoActivity extends Activity {
             e.printStackTrace();
 
         }*/
-        if (getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", null) != null) {
+        if (getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", null) != null) {
             startActivity(new Intent(this, DashboardActivity.class));
             finish();
 

@@ -28,7 +28,7 @@
         <item>Currency (optional)</item>
         <item>Unspecified</item>
         <item>USD</item>
-    </string-array><string name="appName">Stripe Payments Example</string><string name="ok">OK</string><string name="save">PAY</string><string name="addPayment">Add Payment Method</string><string name="progressMessage">Creating Token…</string><string name="validationErrors">Validation Errors</string><string name="paymentMethods">Payment Methods</string><string name="cvc">CVC</string></file><file path="S:\Android_Studio_Apps\WalletGit\wallet\paymrnt_stripe\src\main\res\values\styles.xml" qualifiers=""><style name="ExpMonth" parent="@style/Spinner">
+    </string-array><string name="appName">Stripe Payments Example</string><string name="ok">OK</string><string name="save">PAY</string><string name="addPayment">Add Payment Method</string><string name="progressMessage">Loading...</string><string name="validationErrors">Validation Errors</string><string name="paymentMethods">Payment Methods</string><string name="cvc">CVC</string></file><file path="S:\Android_Studio_Apps\WalletGit\wallet\paymrnt_stripe\src\main\res\values\styles.xml" qualifiers=""><style name="ExpMonth" parent="@style/Spinner">
         <item name="android:entries">@array/month_array</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1.0</item>

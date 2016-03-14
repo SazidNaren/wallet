@@ -4,17 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.squareup.picasso.Picasso;
-
+import vis.com.au.Utility.AppConstant;
+import vis.com.au.activity.NotificationActivity;
 import vis.com.au.apppreferences.AppPreferences;
-import vis.com.au.Utility.AppText;
 import vis.com.au.adapter.DrawerListAdapter;
 import vis.com.au.wallte.R;
-
 import android.animation.ValueAnimator;
 import android.app.Dialog;
 import android.content.Intent;
@@ -72,7 +69,7 @@ public class DrawerLayoutActivity extends ActionBarActivity {
         userCurrentLocation = (TextView) findViewById(R.id.userCurrentLocation);
         userImage = (ImageView) findViewById(R.id.profile_image);
         getDetailOfUser();
-        DrawerListAdapter listAdapter = new DrawerListAdapter(listItemsName, listItemsImage);
+        DrawerListAdapter listAdapter = new DrawerListAdapter(listItemsName, listItemsImage,appPreferences.getCountDoc());
         mDrawerList.setAdapter(listAdapter);
         listItems();
         int actionBarTitleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
@@ -129,16 +126,21 @@ public class DrawerLayoutActivity extends ActionBarActivity {
                                     int position, long id) {
                 switch (position) {
                     case 0:
+                        finish();
                         startActivity(new Intent(DrawerLayoutActivity.this, DashboardActivity.class));
                         break;
                     case 1:
-                        startActivity(new Intent(DrawerLayoutActivity.this, ProfileActivity.class));
+                        startActivityForResult(new Intent(DrawerLayoutActivity.this, ProfileActivity.class),1001);
                         break;
 
                     case 2:
-                        if (appPreferences.isPaidVersion())
+                        if (appPreferences.isPaidVersion()) {
+                            if(appPreferences.isRepeatAlarmEnable())
                             startActivity(new Intent(DrawerLayoutActivity.this, NotificationActivity.class));
-                        else
+                            else
+                                Toast.makeText(DrawerLayoutActivity.this, "Please enable repeat alarm in settings", Toast.LENGTH_SHORT).show();
+                        }
+                            else
                             startActivity(new Intent(DrawerLayoutActivity.this, SubscribeActivity.class));
                         break;
                     case 3:
@@ -147,11 +149,11 @@ public class DrawerLayoutActivity extends ActionBarActivity {
                     case 4:
                         startActivity(new Intent(DrawerLayoutActivity.this, AboutUsActivity.class));
                         break;
-                    case 5:
+                   /* case 5:
                         startActivity(new Intent(DrawerLayoutActivity.this, ShareScreen.class));
                         //Toast.makeText(DrawerLayoutActivity.this, "Share clicked", Toast.LENGTH_SHORT).show();
                         break;
-                    case 6:
+                   */ case 5:
 
                         final Dialog dialog = new Dialog(DrawerLayoutActivity.this);
                         dialog.setCancelable(false);
@@ -170,7 +172,7 @@ public class DrawerLayoutActivity extends ActionBarActivity {
                                 Intent logoutintent = new Intent(DrawerLayoutActivity.this, AppInfoActivity.class);
                                 int PRIVATE_MODE = 0;
                                 SharedPreferences loginSharedPreferences;
-                                loginSharedPreferences = getSharedPreferences(AppText.sharedPreferenceName, PRIVATE_MODE);
+                                loginSharedPreferences = getSharedPreferences(AppConstant.sharedPreferenceName, PRIVATE_MODE);
                                 Editor editor = loginSharedPreferences.edit();
                                 editor.clear();
                                 editor.commit();
@@ -277,9 +279,11 @@ public class DrawerLayoutActivity extends ActionBarActivity {
 
         listItemsImage.add(R.drawable.about);
         listItemsName.add("About us");
+/*
 
         listItemsImage.add(R.drawable.icon_share);
         listItemsName.add("Share");
+*/
 
 
         listItemsImage.add(R.drawable.logout);
@@ -291,15 +295,16 @@ public class DrawerLayoutActivity extends ActionBarActivity {
     private void getDetailOfUser() {
 
         try {
-            SharedPreferences shared = getSharedPreferences(AppText.sharedPreferenceName, 0);
+            SharedPreferences shared = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
             JSONObject obj = new JSONObject(shared.getString("empInfo", null));
             userEmailAddress.setText(obj.getString("emp_first_name") + " " + obj.getString("emp_last_name"));
             //userCurrentLocation.setText(obj.getString(""));
             String empImage = obj.getString("emp_avatar");
             Log.e("empAvatar", empImage + "");
-            Picasso.with(this).load(empImage).placeholder(R.drawable.sss_error).error(R.drawable.sss_error).into(userImage);
+            Picasso.with(this).load(empImage).placeholder(R.drawable.default_profile_image).error(R.drawable.default_profile_image).into(userImage);
             String lat = obj.getString("emp_lat");
             String lng = obj.getString("emp_lang");
+            userCurrentLocation.setText(appPreferences.getAddress());
 
             try {
                 Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
@@ -322,4 +327,17 @@ public class DrawerLayoutActivity extends ActionBarActivity {
         //finish();
     }
 
+      public void refreshDrawer()
+    {
+        DrawerListAdapter listAdapter = new DrawerListAdapter(listItemsName, listItemsImage,appPreferences.getCountDoc());
+        mDrawerList.setAdapter(listAdapter);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1001)
+        {
+            startActivity(new Intent(DrawerLayoutActivity.this, DashboardActivity.class));
+        }
+    }
 }

@@ -166,6 +166,14 @@
 		<item>Ukrainian</item>
 		<item>Vietnamese</item>
 	</string-array>
+    <string-array name="manage_document">
+		<item>Edit Document</item>
+		<item>Delete Document</item>
+	</string-array>
+    <string-array name="manage_folder">
+		<item>Rename Folder</item>
+		<item>Delete Folder</item>
+	</string-array>
     <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/build/intermediates/exploded-aar/Wallet/paymrnt_stripe/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string-array name="month_array">
@@ -839,6 +847,11 @@
     <dimen name="default_line_indicator_gap_width">4dp</dimen>
     <dimen name="default_line_indicator_line_width">12dp</dimen>
     <dimen name="default_line_indicator_stroke_width">1dp</dimen>
+    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="default_text_size">18sp</dimen>
+    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/build/intermediates/exploded-aar/Wallet/library/unspecified/res/values/values.xml -->
+    <eat-comment/>
     <dimen name="default_title_indicator_clip_padding">4dp</dimen>
     <dimen name="default_title_indicator_footer_indicator_height">4dp</dimen>
     <dimen name="default_title_indicator_footer_indicator_underline_padding">20dp</dimen>
@@ -863,6 +876,10 @@
     <dimen name="fab_size_mini">40dp</dimen>
     <dimen name="fab_size_normal">56dp</dimen>
     <dimen name="fab_translation_z_pressed">6dp</dimen>
+    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="heading_text_size">22sp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
     <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="mr_media_route_controller_art_max_height">320dp</dimen>
@@ -1082,7 +1099,7 @@
     <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/build/intermediates/exploded-aar/Wallet/paymrnt_stripe/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="paymentMethods">Payment Methods</string>
-    <string name="progressMessage">Creating Token…</string>
+    <string name="progressMessage">Loading...</string>
     <string name="save">PAY</string>
     <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>

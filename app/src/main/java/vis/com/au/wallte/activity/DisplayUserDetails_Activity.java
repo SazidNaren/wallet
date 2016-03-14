@@ -3,7 +3,7 @@ package vis.com.au.wallte.activity;
 import com.squareup.picasso.Picasso;
 
 import vis.com.au.helper.NetworkTask;
-import vis.com.au.Utility.AppText;
+import vis.com.au.Utility.AppConstant;
 import vis.com.au.Utility.DocumentDetailBean;
 import vis.com.au.wallte.R;
 
@@ -119,7 +119,7 @@ public class DisplayUserDetails_Activity extends ActionBarActivity implements Ne
 		}*/
 
         List<NameValuePair> listValue = new ArrayList<NameValuePair>();
-        listValue.add(new BasicNameValuePair("emp_id", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
+        listValue.add(new BasicNameValuePair("emp_id", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", "")));
         listValue.add(new BasicNameValuePair("type", "employee"));
         listValue.add(new BasicNameValuePair("data", "ALL"));
         networkTask = new NetworkTask(DisplayUserDetails_Activity.this, 1, listValue);

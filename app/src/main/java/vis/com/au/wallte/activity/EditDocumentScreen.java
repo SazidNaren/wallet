@@ -13,12 +13,11 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import com.squareup.picasso.Picasso;
 
 import vis.com.au.Utility.AddDocumentType;
-import vis.com.au.Utility.AppText;
+import vis.com.au.Utility.AppConstant;
 import vis.com.au.adapter.DocumentSpinnerAdapter;
 import vis.com.au.helper.NetworkTask;
 import vis.com.au.support.Httprequest;
@@ -91,7 +90,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
         registrationIdTextView.setText(filterTextOfRegId);
         setTheDocumentType();
         Id = getIntent().getStringExtra("docId");
-        SharedPreferences sharedPref = getSharedPreferences(AppText.sharedPreferenceName, 0);
+        SharedPreferences sharedPref = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
         Editor edit = sharedPref.edit();
         edit.putString("idForUpDate", Id);
         edit.commit();
@@ -164,7 +163,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
             photo.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] imageBytes = baos.toByteArray();
             sendImageToServer = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-            SharedPreferences pref = getSharedPreferences(AppText.sharedPreferenceName, 0);
+            SharedPreferences pref = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
             Editor edit = pref.edit();
             edit.putString("newImageAdd", sendImageToServer);
             edit.commit();
@@ -198,19 +197,19 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
     }
 
     private void setAllTheFieldToServer() {
-        final ProgressDialog pg = AppText.progressDialog(EditDocumentScreen.this, "Connecting with server...");
+        final ProgressDialog pg = AppConstant.progressDialog(EditDocumentScreen.this, "Connecting with server...");
         pg.show();
         try {
 
             final JSONObject jObj = new JSONObject();
-            jObj.put("postType", AppText.postTypeUser);
-            jObj.put("emp_id", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", null));
+            jObj.put("postType", AppConstant.postTypeUser);
+            jObj.put("emp_id", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", null));
             jObj.put("suplierName", supliersNameTextView.getText().toString());
 
             SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
             SimpleDateFormat fmtFSer = new SimpleDateFormat("yyyy-MM-dd");
             SimpleDateFormat fmtOut = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSZ");
-            if (getSharedPreferences(AppText.sharedPreferenceName, 0).getString("idForUpDate", null) != null) {
+            if (getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("idForUpDate", null) != null) {
                 try {
                     Date date = fmtFSer.parse(dateOfIssueTextView.getText().toString());
                     String dateIssue = fmtOut.format(date);
@@ -251,7 +250,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
             jObj.put("documentTitle", documentTitleEditTextView.getText().toString());
             jObj.put("addInfo", additionalInformationTextView.getText().toString());
             if (sendImageToServer == null) {
-                jObj.put("avatar", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("newImageAdd", null));
+                jObj.put("avatar", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("newImageAdd", null));
                 Log.e("hello", sendImageToServer + "");
             } else {
                 jObj.put("avatar", sendImageToServer);
@@ -262,11 +261,11 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
 
                 @Override
                 public void run() {
-                    if (getSharedPreferences(AppText.sharedPreferenceName, 0).getString("idForUpDate", null) != null) {
+                    if (getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("idForUpDate", null) != null) {
                         try {
-                            jObj.put("docId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("uIdServer", null));
-                            jObj.put("fileId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("fIdServer", null));
-                            Httprequest.makeHttpRequest(jObj.toString(), AppText.editDocument);
+                            jObj.put("docId", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("uIdServer", null));
+                            jObj.put("fileId", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("fIdServer", null));
+                            Httprequest.makeHttpRequest(jObj.toString(), AppConstant.editDocument);
 
                         } catch (JSONException e) {
                             Log.e("exception comes", e.toString());
@@ -274,7 +273,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
                         }
                         Log.e("editDocumetnSend::", jObj + "");
                     } else {
-                        Httprequest.makeHttpRequest(jObj.toString(), AppText.upLoadData);
+                        Httprequest.makeHttpRequest(jObj.toString(), AppConstant.upLoadData);
                     }
                     String returnValuePassToAnotherActivity = Httprequest.retValue;
                     Log.e("returnValuePass", returnValuePassToAnotherActivity + "");
@@ -282,7 +281,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
                         JSONObject jObject = new JSONObject(returnValuePassToAnotherActivity);
                         String userIdFromServer = jObject.getString("doc_Id");
                         String fileIdFromServer = jObject.getString("fileId");
-                        SharedPreferences sPre = getSharedPreferences(AppText.sharedPreferenceName, 0);
+                        SharedPreferences sPre = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
                         Editor edit = sPre.edit();
                         edit.putString("uIdServer", userIdFromServer);
                         edit.putString("fIdServer", fileIdFromServer);
@@ -336,7 +335,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
             dateE = dateE.substring(0, 10);
         }
 
-        SharedPreferences pref = getSharedPreferences(AppText.sharedPreferenceName, 0);
+        SharedPreferences pref = getSharedPreferences(AppConstant.sharedPreferenceName, 0);
         Editor edit = pref.edit();
         edit.putString("dateI", dateI);
         edit.putString("dateE", dateE);
@@ -363,7 +362,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
                 exception.printStackTrace();
             }
         });
-        builder.build().load(getSharedPreferences(AppText.sharedPreferenceName, 0).getString("certImage", null)).placeholder(R.drawable.suscribe).error(R.drawable.sss_error).into(snapCardImageView);
+        builder.build().load(getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("certImage", null)).placeholder(R.drawable.suscribe).error(R.drawable.sss_error).into(snapCardImageView);
     }
 
     private void setTheDocumentType() {
@@ -387,7 +386,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
 
     private void sendFetchedTextToServer() {
         List<NameValuePair> listValue = new ArrayList<NameValuePair>();
-        listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppText.sharedPreferenceName, 0).getString("empId", "")));
+        listValue.add(new BasicNameValuePair("userId", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", "")));
         listValue.add(new BasicNameValuePair("type", "employee"));
         listValue.add(new BasicNameValuePair("dateOfIssue", dateOfIssueTextView.getText().toString()));
         listValue.add(new BasicNameValuePair("dateOfExpire", dateOfExpireTextView.getText().toString()));
@@ -402,7 +401,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
         listValue.add(new BasicNameValuePair("backAvatars",""));
         networkTask = new NetworkTask(EditDocumentScreen.this, 1, listValue);
         networkTask.exposePostExecute(EditDocumentScreen.this);
-        networkTask.execute(AppText.uploadDocument);
+        networkTask.execute(AppConstant.uploadDocument);
     }
     @Override
     public void resultFromNetwork(String object, int id, Object arg1, Object arg2) {
