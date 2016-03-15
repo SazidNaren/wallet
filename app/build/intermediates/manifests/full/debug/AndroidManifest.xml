@@ -113,7 +113,8 @@
         <activity
             android:name="vis.com.au.wallte.activity.PaymentActivityGoogle"
             android:label="@string/title_activity_display_user_details_"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.Light" >
         </activity>
         <activity
             android:name="vis.com.au.wallte.activity.DrawerLayoutActivity"

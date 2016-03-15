@@ -101,6 +101,7 @@
         <activity
             android:name=".activity.PaymentActivityGoogle"
             android:label="@string/title_activity_display_user_details_"
+            android:theme="@android:style/Theme.DeviceDefault.Light"
             android:screenOrientation="portrait">
         </activity>
         <activity

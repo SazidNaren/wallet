@@ -20,11 +20,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Spinner android:id="@+id/expMonth" style="@style/ExpMonth" android:nextFocusForward="@+id/expYear" />
+        <Spinner android:id="@+id/expMonth"
+            style="@style/ExpMonth"
+            android:background="#cccccc"
+            android:layout_height="50dp"
+            android:layout_marginRight="5dp"
+            android:nextFocusForward="@+id/expYear" />
 
-        <Spinner android:id="@+id/expYear" style="@style/ExpYear" android:nextFocusForward="@+id/cvc" />
+        <Spinner android:id="@+id/expYear"
+            style="@style/ExpYear"
+            android:layout_height="50dp"
+            android:layout_marginRight="5dp"
+            android:nextFocusForward="@+id/cvc"
+            android:background="#cccccc"/>
 
-        <EditText android:id="@+id/cvc" style="@style/CVC" android:nextFocusForward="@+id/currency" />
+        <EditText android:id="@+id/cvc"
+            style="@style/CVC"
+            android:layout_height="50dp"
+            android:background="#cccccc"
+            android:nextFocusForward="@+id/currency" />
 
 
     </LinearLayout>

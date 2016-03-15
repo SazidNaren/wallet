@@ -17,9 +17,9 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:textColorPrimary">#fdfff2</item>
         <item name="android:windowBackground">@color/dimBlackColor</item>
-        <item name="android:actionMenuTextColor">@color/blackColor</item>
         <item name="colorControlNormal">@android:color/background_dark</item>
         <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="android:itemBackground">@color/dimBlackColor</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 

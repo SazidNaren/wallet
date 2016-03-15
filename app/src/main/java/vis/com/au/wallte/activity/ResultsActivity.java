@@ -65,13 +65,29 @@ public class ResultsActivity extends Activity implements NetworkTask.Result{
         //if(text!=null && text.equals(""))
             finish();
         tv.post(new MessagePoster(text));
-
+        String name="TestDoc";
+        String dateOfIssue="2011-11-11";
+        String dateOfExpire="2017-11-11";
+        String regostrationId="111";
+        try {
+            if (!text.equals("")) {
+                if (text.contains("Name"))
+                    name = text.substring(text.indexOf("Name")+10,text.indexOf("Name")+100).trim().replace("\n","");
+                if (text.contains("Date of Issue"))
+                    dateOfIssue = text.substring(text.indexOf("Date of Issue")+15,text.indexOf("Date of Issue")+100).trim().replace("\n", "").replace("/","-");
+                /*if (text.contains("Date of Expiry"))
+                    dateOfExpire = text.substring(name.indexOf("Date of Expiry"), name.indexOf("Date of Expiry") + 12);*/
+            }
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
         Intent intent = new Intent(ResultsActivity.this, EditDocumentScreen.class);
         intent.putExtra("docId", "");
         intent.putExtra("documentTypeTextView", "");
-        intent.putExtra("documentTitleEditTextView","TestDoc");
-        intent.putExtra("dateOfIssueTextView", "2011-11-11");
-        intent.putExtra("dateOfExpireTextView", "2017-11-11");
+        intent.putExtra("documentTitleEditTextView",name);
+        intent.putExtra("dateOfIssueTextView", dateOfIssue);
+        intent.putExtra("dateOfExpireTextView",dateOfExpire);
         intent.putExtra("supliersNameTextView", "John Shens");
         intent.putExtra("registrationIdTextView","111");
         intent.putExtra("additionalInformationTextView","");

@@ -272,6 +272,7 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
         getMenuInflater().inflate(R.menu.paid_menu, menu);
         else
             getMenuInflater().inflate(R.menu.unpaid_menu, menu);
+
         return true;
     }
 

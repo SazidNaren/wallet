@@ -44,6 +44,6 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:background="#fff"
-        android:dividerHeight="1dp"></ListView>
-
+        android:dividerHeight="1dp">
+    </ListView>
 </RelativeLayout><!-- From: file:/home/sajid/Joy(Backup)/wallet/app/src/main/res/layout/activity_myupload.xml -->

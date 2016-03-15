@@ -203,7 +203,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
         try {
             if(documentTitleEditTextView.getText().toString().trim().equals("")) {
                 Toast.makeText(this, "Ttile should not empty", Toast.LENGTH_SHORT).show();
-                Toast.makeText(this, "Ttile should not empty", Toast.LENGTH_SHORT).show();
+                pg.dismiss();
                 return;
             }
             final JSONObject jObj = new JSONObject();
