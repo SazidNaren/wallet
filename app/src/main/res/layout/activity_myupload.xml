@@ -21,6 +21,7 @@
             android:background="#fff"
             android:drawableLeft="@drawable/search"
             android:hint="Search"
+            android:textColor="@color/blackColor"
             android:textCursorDrawable="@drawable/edittext_cursor"
             android:paddingLeft="10dp" />
 
