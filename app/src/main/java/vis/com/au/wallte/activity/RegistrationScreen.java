@@ -52,6 +52,7 @@ import android.widget.Toast;
 public class RegistrationScreen extends ActionBarActivity implements OnClickListener {
 
     private static int RESULT_LOAD_IMAGE = 1;
+    private int POSTBACK_REDEEM_OFFER=3;
     private String fileName;
     private LocationManager lManager;
     private MyLocation myLocation = new MyLocation();
@@ -151,17 +152,16 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
             obj.put("avatar", fileName);
 
             new Thread(new Runnable() {
-
                 @Override
                 public void run() {
                     try {
-
                         String returnValue = Httprequest.makeHttpRequest(obj.toString(), AppConstant.signUpURL);
                         Log.e("DataSend", obj.toString());
                         progressDialog.dismiss();
+                        Intent intent2 = new Intent(RegistrationScreen.this, AppInfoActivity.class);
+                        intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent2);
                         AppConstant.showToast(RegistrationScreen.this, "Account has been Created");
-                        Intent intent = new Intent(RegistrationScreen.this, PromoCodeScreen.class);
-                        startActivity(intent);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -188,7 +188,11 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
         super.onActivityResult(requestCode, resultCode, data);
         try {
 
-            if (requestCode == RESULT_LOAD_IMAGE && resultCode == -1 && data != null) {
+            if(requestCode==POSTBACK_REDEEM_OFFER )
+            {
+                sendDateToServer();
+            }
+            else if (requestCode == RESULT_LOAD_IMAGE && resultCode == -1 && data != null) {
                 // Get the Image from data
                 Uri selectedImage = data.getData();
                 String[] filePathColumn = {MediaStore.Images.Media.DATA};
@@ -259,7 +263,11 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
 
         switch (item.getItemId()) {
             case R.id.actionSaveReqiatrationBtn:
-                sendDateToServer();
+                if(checkValidation()) {
+                    Intent intent = new Intent(RegistrationScreen.this, PromoCodeScreen.class);
+                    startActivityForResult(intent, POSTBACK_REDEEM_OFFER);
+                }
+               // sendDateToServer();
                 break;
 
             case android.R.id.home:
@@ -269,6 +277,7 @@ public class RegistrationScreen extends ActionBarActivity implements OnClickList
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     private boolean checkValidation() {
         boolean valid = true;

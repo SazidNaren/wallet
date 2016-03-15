@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
+    android:background="#ffffff"
     android:layout_height="fill_parent">
 
     <TextView android:id="@+id/payment_form_title"
@@ -38,4 +39,4 @@
             class="stripe.example.fragment.TokenListFragment"/>
     </LinearLayout>
 </RelativeLayout>
-<!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/layout/payment_activity.xml --><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/build/intermediates/bundles/debug/res/layout/payment_activity.xml -->
+<!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/main/res/layout/payment_activity.xml --><!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/build/intermediates/bundles/debug/res/layout/payment_activity.xml -->

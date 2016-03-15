@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="S:\Android_Studio_Apps\WalletGit\wallet\library\src\main\assets"/></dataSet><dataSet config="debug"><source path="S:\Android_Studio_Apps\WalletGit\wallet\library\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/sajid/Joy(Backup)/wallet/library/src/main/assets"/></dataSet><dataSet config="debug"><source path="/home/sajid/Joy(Backup)/wallet/library/src/debug/assets"/></dataSet></merger>

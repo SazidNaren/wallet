@@ -150,6 +150,7 @@
                         android:textColorHint="#C6C6C6"
                         android:hint="Enter your First Name"
                         android:padding="10dp"
+                        android:textColor="@color/blackColor"
                         android:textCursorDrawable="@drawable/edittext_cursor" />
                 </LinearLayout>
 
@@ -191,6 +192,7 @@
                         android:textColorHint="#C6C6C6"
                         android:hint="Enter your Last Name"
                         android:padding="10dp"
+                        android:textColor="@color/blackColor"
                         android:textCursorDrawable="@drawable/edittext_cursor" />
                 </LinearLayout>
 
@@ -217,7 +219,7 @@
                         android:textSize="16sp"
                         android:textColor="@color/blackColor" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/userDateOfBirthEditText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -226,6 +228,7 @@
                         android:drawableRight="@drawable/calander_icon"
                         android:hint="Enter your DOB"
                         android:padding="10dp"
+                        android:textColor="@color/blackColor"
                         android:textColorHint="#C6C6C6"
                         android:textCursorDrawable="@drawable/edittext_cursor" />
                 </LinearLayout>
@@ -262,6 +265,7 @@
                         android:background="@null"
                         android:hint="Enter your User Name"
                         android:padding="10dp"
+                        android:textColor="@color/blackColor"
                         android:textColorHint="#C6C6C6"
                         android:textCursorDrawable="@drawable/edittext_cursor" />
                 </LinearLayout>
@@ -299,6 +303,7 @@
                         android:drawablePadding="25dp"
                         android:hint="Enter your email"
                         android:padding="10dp"
+                        android:textColor="@color/blackColor"
                         android:textColorHint="#C6C6C6"
                         android:textCursorDrawable="@drawable/edittext_cursor" />
                 </LinearLayout>
@@ -338,6 +343,7 @@
                         android:drawablePadding="25dp"
                         android:hint="Enter your contact no."
                         android:padding="10dp"
+                        android:textColor="@color/blackColor"
                         android:textColorHint="#C6C6C6"
                         android:textCursorDrawable="@drawable/edittext_cursor" />
                 </LinearLayout>
@@ -374,6 +380,7 @@
                         android:drawablePadding="25dp"
                         android:hint="Enter your Address"
                         android:padding="10dp"
+                        android:textColor="@color/blackColor"
                         android:textColorHint="#C6C6C6"
                         android:textCursorDrawable="@drawable/edittext_cursor" />
 

@@ -23,4 +23,4 @@
           android:drawable="@drawable/spinner_focused_holo_dark" />
     <item android:drawable="@drawable/spinner_default_holo_dark" />
 </selector>
-<!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/drawable/spinner_background_holo_dark.xml --><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/build/intermediates/bundles/debug/res/drawable/spinner_background_holo_dark.xml -->
+<!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/main/res/drawable/spinner_background_holo_dark.xml --><!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/build/intermediates/bundles/debug/res/drawable/spinner_background_holo_dark.xml -->

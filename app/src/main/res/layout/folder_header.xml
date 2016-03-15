@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:textSize="@dimen/default_text_size"
-        android:textColor="@color/blackColor"
+        android:textColor="@color/whiteColor"
         android:text="Manage Folder"
         android:layout_weight="8"/>
     <ImageView

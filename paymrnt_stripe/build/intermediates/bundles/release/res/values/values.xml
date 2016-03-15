@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="currency_array">
         <item>Currency (optional)</item>
         <item>Unspecified</item>
         <item>USD</item>
     </string-array>
-    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/dates.xml -->
+    <!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/main/res/values/dates.xml -->
     <eat-comment/>
     <string-array name="month_array">
         <item>Month</item>
@@ -36,17 +36,17 @@
         <item>2019</item>
         <item>2020</item>
     </string-array>
-    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/colors.xml -->
+    <!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="buttonText">#EEEEEE</color>
     <color name="editText">#AAAAAA</color>
     <color name="headerText">#EEEEEE</color>
     <color name="spinnerItem">#AAAAAA</color>
-    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/dimens.xml -->
+    <!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="addPayment">Add Payment Method</string>
@@ -61,7 +61,7 @@
     <string name="progressMessage">Loading...</string>
     <string name="save">PAY</string>
     <string name="validationErrors">Validation Errors</string>
-    <!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/paymrnt_stripe/src/main/res/values/styles.xml -->
+    <!-- From: file:/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
         <!--

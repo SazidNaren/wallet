@@ -45,6 +45,7 @@
                     android:drawableLeft="@drawable/mail"
                     android:drawablePadding="10dp"
                     android:hint="Email Address"
+                    android:textColor="@color/blackColor"
                     android:inputType="textEmailAddress"
                     android:padding="10dp" />
 
@@ -56,6 +57,7 @@
                     android:drawableLeft="@drawable/password"
                     android:drawablePadding="10dp"
                     android:hint="Password"
+                    android:textColor="@color/blackColor"
                     android:inputType="textPassword"
                     android:padding="10dp" />
             </LinearLayout>
@@ -70,4 +72,4 @@
                 android:textColor="@color/whiteColor" />
         </LinearLayout>
 
-</RelativeLayout><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/layout/login.xml -->
+</RelativeLayout><!-- From: file:/home/sajid/Joy(Backup)/wallet/app/src/main/res/layout/login.xml -->

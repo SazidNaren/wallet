@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/whiteColor"
     tools:context="vis.com.au.wallte.activity.SettingActivity" >
     <LinearLayout
         android:id="@+id/notification_setting_layout"
@@ -207,4 +208,4 @@
                 android:src="@drawable/next_forward" />
         </RelativeLayout>
     </LinearLayout>
-</LinearLayout><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/layout/activity_setting.xml -->
+</LinearLayout><!-- From: file:/home/sajid/Joy(Backup)/wallet/app/src/main/res/layout/activity_setting.xml -->

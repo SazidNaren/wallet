@@ -1,6 +1,8 @@
 package vis.com.au.wallte.activity;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -10,6 +12,8 @@ import vis.com.au.Utility.AppConstant;
 import vis.com.au.support.Httprequest;
 import vis.com.au.wallte.R;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,6 +36,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,15 +45,17 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 public class ProfileActivity extends AppCompatActivity implements OnClickListener {
-    private EditText userFirstName, userLastName, userNameEditText, userDateOfBirthEditText,
+    private EditText userFirstName, userLastName, userNameEditText,
             userPhoneNo, userAddress, userPassword, userEmail, userName;
     private TextView emailTV, empLatLngTextView;
+    private TextView userDateOfBirthEditText;
     private ImageView profile_image, iv_back;
     private String fileName;
     private Button editProfileBtn;
     private boolean profileEdit = true;
     private static int RESULT_LOAD_IMAGE = 1;
-
+    private DatePickerDialog datePickerDialog;
+    private SimpleDateFormat dateFormatter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
         userFirstName = (EditText) findViewById(R.id.userFirstName);
         userLastName = (EditText) findViewById(R.id.userLastName);
         userNameEditText = (EditText) findViewById(R.id.userNameEditText);
-        userDateOfBirthEditText = (EditText) findViewById(R.id.userDateOfBirthEditText);
+        userDateOfBirthEditText = (TextView) findViewById(R.id.userDateOfBirthEditText);
         userPhoneNo = (EditText) findViewById(R.id.userPhoneNo);
         userEmail = (EditText) findViewById(R.id.userEmail);
 
@@ -171,7 +178,12 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
                 }
             }
         });
-
+        userDateOfBirthEditText.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDateField();
+            }
+        });
 
         /*final AlertDialog alertDialog = new AlertDialog.Builder(ProfileActivity.this).create();
         alertDialog.setTitle("Do you want to edit your profile.");
@@ -391,7 +403,19 @@ public class ProfileActivity extends AppCompatActivity implements OnClickListene
             e.printStackTrace();
         }
     }
+    private void setDateField() {
+        dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        Calendar newCalendar = Calendar.getInstance();
+        datePickerDialog = new DatePickerDialog(this, AlertDialog.THEME_HOLO_LIGHT,new DatePickerDialog.OnDateSetListener() {
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                userDateOfBirthEditText.setText(dateFormatter.format(newDate.getTime()));
+            }
 
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="S:\Android_Studio_Apps\WalletGit\wallet\paymrnt_stripe\src\main\assets"/></dataSet><dataSet config="release"><source path="S:\Android_Studio_Apps\WalletGit\wallet\paymrnt_stripe\src\release\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/main/assets"/></dataSet><dataSet config="release"><source path="/home/sajid/Joy(Backup)/wallet/paymrnt_stripe/src/release/assets"/></dataSet></merger>

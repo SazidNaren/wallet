@@ -72,9 +72,9 @@ public class PromoCodeScreen  extends ActionBarActivity implements OnClickListen
                 hitAllDataApi();
                 break;
             case R.id.proceedBtn:
-                Intent intent2 = new Intent(PromoCodeScreen.this, AppInfoActivity.class);
+              /*  Intent intent2 = new Intent(PromoCodeScreen.this, AppInfoActivity.class);
                 intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent2);
+                startActivity(intent2);*/
                 finish();
                 break;
             case R.id.cancelBtn:
@@ -96,9 +96,9 @@ public class PromoCodeScreen  extends ActionBarActivity implements OnClickListen
     public void resultFromNetwork(String object, int id, Object arg1, Object arg2) {
         if (id == 1011)
         {
-            Intent intent = new Intent(PromoCodeScreen.this, AppInfoActivity.class);
+          /*  Intent intent = new Intent(PromoCodeScreen.this, AppInfoActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+            startActivity(intent);*/
             finish();
         }
     }

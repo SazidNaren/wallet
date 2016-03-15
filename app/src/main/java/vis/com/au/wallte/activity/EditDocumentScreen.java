@@ -23,6 +23,7 @@ import vis.com.au.helper.NetworkTask;
 import vis.com.au.support.Httprequest;
 import vis.com.au.wallte.R;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -200,7 +201,11 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
         final ProgressDialog pg = AppConstant.progressDialog(EditDocumentScreen.this, "Connecting with server...");
         pg.show();
         try {
-
+            if(documentTitleEditTextView.getText().toString().trim().equals("")) {
+                Toast.makeText(this, "Ttile should not empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Ttile should not empty", Toast.LENGTH_SHORT).show();
+                return;
+            }
             final JSONObject jObj = new JSONObject();
             jObj.put("postType", AppConstant.postTypeUser);
             jObj.put("emp_id", getSharedPreferences(AppConstant.sharedPreferenceName, 0).getString("empId", null));
@@ -419,7 +424,7 @@ public class EditDocumentScreen extends ActionBarActivity implements NetworkTask
     void showCalendar(final TextView textView)
     {
         Calendar newCalendar = Calendar.getInstance();
-        DatePickerDialog fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog fromDatePickerDialog = new DatePickerDialog(this, AlertDialog.THEME_HOLO_LIGHT, new DatePickerDialog.OnDateSetListener() {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);

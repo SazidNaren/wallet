@@ -79,7 +79,7 @@
 
                 <EditText
                     android:id="@+id/documentTitleEditTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="85dp"
@@ -117,7 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="25dp"
+                    android:layout_marginLeft="50dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp" />
             </LinearLayout>
@@ -145,7 +145,7 @@
 
                 <TextView
                     android:id="@+id/dateOfIssueTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="35dp"
@@ -153,6 +153,7 @@
                     android:inputType="date"
                     android:background="#00000000"
                     android:hint="20-7-2015"
+                    android:drawableRight="@drawable/calander_icon"
                     android:textColor="@color/blackColor"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -182,7 +183,7 @@
 
                 <TextView
                     android:id="@+id/dateOfExpireTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="30dp"
@@ -191,6 +192,7 @@
                     android:hint="20-7-2015"
                     android:inputType="date"
                     android:textColor="@color/blackColor"
+                    android:drawableRight="@drawable/calander_icon"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -219,7 +221,7 @@
 
                 <EditText
                     android:id="@+id/supliersNameTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="25dp"
@@ -255,7 +257,7 @@
 
                 <EditText
                     android:id="@+id/registrationIdTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="25dp"
@@ -291,7 +293,7 @@
 
                 <EditText
                     android:id="@+id/additionalInformationTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:layout_marginLeft="25dp"
@@ -320,4 +322,4 @@
         </LinearLayout>
     </ScrollView>
 
-</RelativeLayout><!-- From: file:/S:/Android_Studio_Apps/WalletGit/wallet/app/src/main/res/layout/activity_fill_the_form.xml -->
+</RelativeLayout><!-- From: file:/home/sajid/Joy(Backup)/wallet/app/src/main/res/layout/activity_fill_the_form.xml -->

@@ -503,7 +503,8 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
     }
 
     public void captureImageFromSdCard() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        Intent intent = new Intent(
+        Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
 
         startActivityForResult(intent, SELECT_FILE);
@@ -586,12 +587,26 @@ public class DashboardActivity extends DrawerLayoutActivity implements NetworkTa
                 imageFilePath = getOutputMediaFileUri().getPath();
                 break;
             case SELECT_FILE: {
-                Uri imageUri = data.getData();
+              /*  Uri imageUri = data.getData();
 
                 String[] projection = {MediaStore.Images.Media.DATA};
                 Cursor cur = managedQuery(imageUri, projection, null, null, null);
                 cur.moveToFirst();
-                imageFilePath = cur.getString(cur.getColumnIndex(MediaStore.Images.Media.DATA));
+                imageFilePath = cur.getString(cur.getColumnIndex(MediaStore.Images.Media.DATA));*/
+
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+                // Get the cursor
+                Cursor cursor = getContentResolver().query(selectedImage,
+                        filePathColumn, null, null, null);
+                // Move to first row
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                imageFilePath = cursor.getString(columnIndex);
+                cursor.close();
+
             }
             break;
         }
